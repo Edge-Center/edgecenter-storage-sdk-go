@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client"
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
@@ -55,8 +55,8 @@ func WithPermanentTokenAuth(tokenGetter func() string) SdkOpt {
 }
 
 //NewSDK constructor of storage api swagger client wrapper
-//see UI of your data here https://api.gcorelabs.com/storage
-//apiHost = https://api.gcorelabs.com
+//see UI of your data here https://api.edgecenter.ru/storage
+//apiHost = https://api.edgecenter.ru
 //apiBasePath = /storage
 func NewSDK(apiHost, apiBasePath string, opts ...SdkOpt) *SDK {
 	schema := strings.Split(apiHost, "://")
