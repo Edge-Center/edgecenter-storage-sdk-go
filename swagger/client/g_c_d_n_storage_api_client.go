@@ -10,11 +10,11 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/key"
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/location"
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/notifications"
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/statistics"
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/storage"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/key"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/location"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/notifications"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/statistics"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/storage"
 )
 
 // Default g c d n storage API HTTP client.
@@ -23,7 +23,7 @@ var Default = NewHTTPClient(nil)
 const (
 	// DefaultHost is the default Host
 	// found in Meta (info) section of spec file
-	DefaultHost string = "api.gcorelabs.com"
+	DefaultHost string = "api.edgecenter.ru"
 	// DefaultBasePath is the default BasePath
 	// found in Meta (info) section of spec file
 	DefaultBasePath string = "/storage/"
