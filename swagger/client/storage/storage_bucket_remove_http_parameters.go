@@ -53,10 +53,12 @@ func NewStorageBucketRemoveHTTPParamsWithHTTPClient(client *http.Client) *Storag
 	}
 }
 
-/* StorageBucketRemoveHTTPParams contains all the parameters to send to the API endpoint
-   for the storage bucket remove Http operation.
+/*
+StorageBucketRemoveHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the storage bucket remove Http operation.
+
+	Typically these are written to a http.Request.
 */
 type StorageBucketRemoveHTTPParams struct {
 

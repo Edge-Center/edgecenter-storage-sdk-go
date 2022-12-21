@@ -1,4 +1,4 @@
-package gstorage
+package ec_storage
 
 // EmptyResultErr customize
 type EmptyResultErr string

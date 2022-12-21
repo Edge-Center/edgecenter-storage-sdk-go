@@ -52,10 +52,12 @@ func NewLocationListHTTPParamsWithHTTPClient(client *http.Client) *LocationListH
 	}
 }
 
-/* LocationListHTTPParams contains all the parameters to send to the API endpoint
-   for the location list Http operation.
+/*
+LocationListHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the location list Http operation.
+
+	Typically these are written to a http.Request.
 */
 type LocationListHTTPParams struct {
 	timeout    time.Duration

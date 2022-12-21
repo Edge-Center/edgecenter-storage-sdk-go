@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageUpdateCredentialsHTTPReader is a Reader for the StorageUpdateCredentialsHTTP structure.
@@ -47,7 +47,8 @@ func NewStorageUpdateCredentialsHTTPOK() *StorageUpdateCredentialsHTTPOK {
 	return &StorageUpdateCredentialsHTTPOK{}
 }
 
-/* StorageUpdateCredentialsHTTPOK describes a response with status code 200, with default header values.
+/*
+StorageUpdateCredentialsHTTPOK describes a response with status code 200, with default header values.
 
 Storage
 */
@@ -55,9 +56,39 @@ type StorageUpdateCredentialsHTTPOK struct {
 	Payload *models.Storage
 }
 
+// IsSuccess returns true when this storage update credentials Http o k response has a 2xx status code
+func (o *StorageUpdateCredentialsHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage update credentials Http o k response has a 3xx status code
+func (o *StorageUpdateCredentialsHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage update credentials Http o k response has a 4xx status code
+func (o *StorageUpdateCredentialsHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage update credentials Http o k response has a 5xx status code
+func (o *StorageUpdateCredentialsHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage update credentials Http o k response a status code equal to that given
+func (o *StorageUpdateCredentialsHTTPOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StorageUpdateCredentialsHTTPOK) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/credentials][%d] storageUpdateCredentialsHttpOK  %+v", 200, o.Payload)
 }
+
+func (o *StorageUpdateCredentialsHTTPOK) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/credentials][%d] storageUpdateCredentialsHttpOK  %+v", 200, o.Payload)
+}
+
 func (o *StorageUpdateCredentialsHTTPOK) GetPayload() *models.Storage {
 	return o.Payload
 }
@@ -79,7 +110,8 @@ func NewStorageUpdateCredentialsHTTPBadRequest() *StorageUpdateCredentialsHTTPBa
 	return &StorageUpdateCredentialsHTTPBadRequest{}
 }
 
-/* StorageUpdateCredentialsHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageUpdateCredentialsHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -87,9 +119,39 @@ type StorageUpdateCredentialsHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage update credentials Http bad request response has a 2xx status code
+func (o *StorageUpdateCredentialsHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage update credentials Http bad request response has a 3xx status code
+func (o *StorageUpdateCredentialsHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage update credentials Http bad request response has a 4xx status code
+func (o *StorageUpdateCredentialsHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage update credentials Http bad request response has a 5xx status code
+func (o *StorageUpdateCredentialsHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage update credentials Http bad request response a status code equal to that given
+func (o *StorageUpdateCredentialsHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageUpdateCredentialsHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/credentials][%d] storageUpdateCredentialsHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageUpdateCredentialsHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/credentials][%d] storageUpdateCredentialsHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageUpdateCredentialsHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -106,7 +168,8 @@ func (o *StorageUpdateCredentialsHTTPBadRequest) readResponse(response runtime.C
 	return nil
 }
 
-/*StorageUpdateCredentialsHTTPBody storage update credentials HTTP body
+/*
+StorageUpdateCredentialsHTTPBody storage update credentials HTTP body
 swagger:model StorageUpdateCredentialsHTTPBody
 */
 type StorageUpdateCredentialsHTTPBody struct {

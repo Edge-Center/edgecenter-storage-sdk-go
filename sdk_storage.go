@@ -1,18 +1,18 @@
-package gstorage
+package ec_storage
 
 import (
 	"fmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/storage"
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/storage"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 type sdkStorage struct {
 	*apiCore
 }
 
-//StoragesList getter for g-core storage api
-//same result like on UI here https://storage.gcorelabs.com/storage/list
+// StoragesList getter for EdgeCenter Storage API
+// same result like on UI here https://api.edgecenter.ru/storage/list
 func (sdk *sdkStorage) StoragesList(opts ...func(params *storage.StorageListHTTPV2Params)) ([]models.Storage, error) {
 	params := &storage.StorageListHTTPV2Params{}
 	for _, opt := range opts {
@@ -29,7 +29,7 @@ func (sdk *sdkStorage) StoragesList(opts ...func(params *storage.StorageListHTTP
 	return list, nil
 }
 
-//CreateStorage writer for g-core storage api
+// CreateStorage writer for EdgeCenter Storage API
 func (sdk *sdkKey) CreateStorage(opts ...func(params *storage.StorageCreateHTTPParams)) (*models.Storage, error) {
 	params := &storage.StorageCreateHTTPParams{}
 	for _, opt := range opts {
@@ -42,7 +42,7 @@ func (sdk *sdkKey) CreateStorage(opts ...func(params *storage.StorageCreateHTTPP
 	return res.Payload, nil
 }
 
-//ModifyStorage writer for g-core storage api
+// ModifyStorage writer for EdgeCenter Storage API
 func (sdk *sdkKey) ModifyStorage(opts ...func(params *storage.StorageUpdateHTTPParams)) (*models.Storage, error) {
 	params := &storage.StorageUpdateHTTPParams{}
 	for _, opt := range opts {
@@ -55,8 +55,8 @@ func (sdk *sdkKey) ModifyStorage(opts ...func(params *storage.StorageUpdateHTTPP
 	return res.Payload, nil
 }
 
-//DeleteStorage writer for g-core storage api
-//be noticed that delete action is async in g-core end service
+// DeleteStorage writer for EdgeCenter Storage API
+// be noticed that delete action is async in ec end service
 func (sdk *sdkKey) DeleteStorage(opts ...func(params *storage.StorageDeleteHTTPParams)) error {
 	params := &storage.StorageDeleteHTTPParams{}
 	for _, opt := range opts {
@@ -69,7 +69,7 @@ func (sdk *sdkKey) DeleteStorage(opts ...func(params *storage.StorageDeleteHTTPP
 	return nil
 }
 
-//LinkKeyToStorage writer for g-core storage api
+// LinkKeyToStorage writer for EdgeCenter Storage API
 func (sdk *sdkKey) LinkKeyToStorage(opts ...func(params *storage.KeyLinkHTTPParams)) error {
 	params := &storage.KeyLinkHTTPParams{}
 	for _, opt := range opts {
@@ -82,7 +82,7 @@ func (sdk *sdkKey) LinkKeyToStorage(opts ...func(params *storage.KeyLinkHTTPPara
 	return nil
 }
 
-//UnlinkKeyFromStorage writer for g-core storage api
+// UnlinkKeyFromStorage writer for EdgeCenter Storage API
 func (sdk *sdkKey) UnlinkKeyFromStorage(opts ...func(params *storage.KeyUnlinkHTTPParams)) error {
 	params := &storage.KeyUnlinkHTTPParams{}
 	for _, opt := range opts {
@@ -95,7 +95,7 @@ func (sdk *sdkKey) UnlinkKeyFromStorage(opts ...func(params *storage.KeyUnlinkHT
 	return nil
 }
 
-//UpdateStorageCredentials writer for g-core storage api
+// UpdateStorageCredentials writer for EdgeCenter Storage API
 func (sdk *sdkKey) UpdateStorageCredentials(
 	opts ...func(params *storage.StorageUpdateCredentialsHTTPParams)) (*models.Credentials, error) {
 

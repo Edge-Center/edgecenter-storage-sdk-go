@@ -26,7 +26,7 @@ type LimitByCount struct {
 	// storage name
 	StorageName string `json:"storage_name,omitempty"`
 
-	// UUID
+	// uuid
 	UUID string `json:"uuid,omitempty"`
 }
 

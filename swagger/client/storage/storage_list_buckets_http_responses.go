@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageListBucketsHTTPReader is a Reader for the StorageListBucketsHTTP structure.
@@ -45,7 +45,8 @@ func NewStorageListBucketsHTTPOK() *StorageListBucketsHTTPOK {
 	return &StorageListBucketsHTTPOK{}
 }
 
-/* StorageListBucketsHTTPOK describes a response with status code 200, with default header values.
+/*
+StorageListBucketsHTTPOK describes a response with status code 200, with default header values.
 
 StorageListBucketsEndpointRes
 */
@@ -53,9 +54,39 @@ type StorageListBucketsHTTPOK struct {
 	Payload *models.StorageListBucketsEndpointRes
 }
 
+// IsSuccess returns true when this storage list buckets Http o k response has a 2xx status code
+func (o *StorageListBucketsHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage list buckets Http o k response has a 3xx status code
+func (o *StorageListBucketsHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage list buckets Http o k response has a 4xx status code
+func (o *StorageListBucketsHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage list buckets Http o k response has a 5xx status code
+func (o *StorageListBucketsHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage list buckets Http o k response a status code equal to that given
+func (o *StorageListBucketsHTTPOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StorageListBucketsHTTPOK) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/buckets][%d] storageListBucketsHttpOK  %+v", 200, o.Payload)
 }
+
+func (o *StorageListBucketsHTTPOK) String() string {
+	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/buckets][%d] storageListBucketsHttpOK  %+v", 200, o.Payload)
+}
+
 func (o *StorageListBucketsHTTPOK) GetPayload() *models.StorageListBucketsEndpointRes {
 	return o.Payload
 }
@@ -77,7 +108,8 @@ func NewStorageListBucketsHTTPBadRequest() *StorageListBucketsHTTPBadRequest {
 	return &StorageListBucketsHTTPBadRequest{}
 }
 
-/* StorageListBucketsHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageListBucketsHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -85,9 +117,39 @@ type StorageListBucketsHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage list buckets Http bad request response has a 2xx status code
+func (o *StorageListBucketsHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage list buckets Http bad request response has a 3xx status code
+func (o *StorageListBucketsHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage list buckets Http bad request response has a 4xx status code
+func (o *StorageListBucketsHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage list buckets Http bad request response has a 5xx status code
+func (o *StorageListBucketsHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage list buckets Http bad request response a status code equal to that given
+func (o *StorageListBucketsHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageListBucketsHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/buckets][%d] storageListBucketsHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageListBucketsHTTPBadRequest) String() string {
+	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/buckets][%d] storageListBucketsHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageListBucketsHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

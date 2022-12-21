@@ -53,10 +53,12 @@ func NewStorageListHTTPV1ParamsWithHTTPClient(client *http.Client) *StorageListH
 	}
 }
 
-/* StorageListHTTPV1Params contains all the parameters to send to the API endpoint
-   for the storage list Http v1 operation.
+/*
+StorageListHTTPV1Params contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the storage list Http v1 operation.
+
+	Typically these are written to a http.Request.
 */
 type StorageListHTTPV1Params struct {
 
@@ -89,13 +91,13 @@ type StorageListHTTPV1Params struct {
 
 	   Field name to sort by
 	*/
-	By *string
+	OrderBy *string
 
 	/* OrderDirection.
 
 	   Ascending or descending order
 	*/
-	Direction *string
+	OrderDirection *string
 
 	// ShowDeleted.
 	ShowDeleted *bool
@@ -214,26 +216,26 @@ func (o *StorageListHTTPV1Params) SetOffset(offset *uint64) {
 	o.Offset = offset
 }
 
-// WithBy adds the orderBy to the storage list Http v1 params
-func (o *StorageListHTTPV1Params) WithBy(orderBy *string) *StorageListHTTPV1Params {
-	o.SetBy(orderBy)
+// WithOrderBy adds the orderBy to the storage list Http v1 params
+func (o *StorageListHTTPV1Params) WithOrderBy(orderBy *string) *StorageListHTTPV1Params {
+	o.SetOrderBy(orderBy)
 	return o
 }
 
-// SetBy adds the orderBy to the storage list Http v1 params
-func (o *StorageListHTTPV1Params) SetBy(orderBy *string) {
-	o.By = orderBy
+// SetOrderBy adds the orderBy to the storage list Http v1 params
+func (o *StorageListHTTPV1Params) SetOrderBy(orderBy *string) {
+	o.OrderBy = orderBy
 }
 
-// WithDirection adds the orderDirection to the storage list Http v1 params
-func (o *StorageListHTTPV1Params) WithDirection(orderDirection *string) *StorageListHTTPV1Params {
-	o.SetDirection(orderDirection)
+// WithOrderDirection adds the orderDirection to the storage list Http v1 params
+func (o *StorageListHTTPV1Params) WithOrderDirection(orderDirection *string) *StorageListHTTPV1Params {
+	o.SetOrderDirection(orderDirection)
 	return o
 }
 
-// SetDirection adds the orderDirection to the storage list Http v1 params
-func (o *StorageListHTTPV1Params) SetDirection(orderDirection *string) {
-	o.Direction = orderDirection
+// SetOrderDirection adds the orderDirection to the storage list Http v1 params
+func (o *StorageListHTTPV1Params) SetOrderDirection(orderDirection *string) {
+	o.OrderDirection = orderDirection
 }
 
 // WithShowDeleted adds the showDeleted to the storage list Http v1 params
@@ -362,13 +364,13 @@ func (o *StorageListHTTPV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 		}
 	}
 
-	if o.By != nil {
+	if o.OrderBy != nil {
 
 		// query param order_by
 		var qrOrderBy string
 
-		if o.By != nil {
-			qrOrderBy = *o.By
+		if o.OrderBy != nil {
+			qrOrderBy = *o.OrderBy
 		}
 		qOrderBy := qrOrderBy
 		if qOrderBy != "" {
@@ -379,13 +381,13 @@ func (o *StorageListHTTPV1Params) WriteToRequest(r runtime.ClientRequest, reg st
 		}
 	}
 
-	if o.Direction != nil {
+	if o.OrderDirection != nil {
 
 		// query param order_direction
 		var qrOrderDirection string
 
-		if o.Direction != nil {
-			qrOrderDirection = *o.Direction
+		if o.OrderDirection != nil {
+			qrOrderDirection = *o.OrderDirection
 		}
 		qOrderDirection := qrOrderDirection
 		if qOrderDirection != "" {

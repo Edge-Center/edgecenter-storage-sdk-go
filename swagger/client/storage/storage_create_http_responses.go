@@ -17,7 +17,7 @@ import (
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageCreateHTTPReader is a Reader for the StorageCreateHTTP structure.
@@ -56,7 +56,8 @@ func NewStorageCreateHTTPOK() *StorageCreateHTTPOK {
 	return &StorageCreateHTTPOK{}
 }
 
-/* StorageCreateHTTPOK describes a response with status code 200, with default header values.
+/*
+StorageCreateHTTPOK describes a response with status code 200, with default header values.
 
 Storage
 */
@@ -64,9 +65,39 @@ type StorageCreateHTTPOK struct {
 	Payload *models.Storage
 }
 
+// IsSuccess returns true when this storage create Http o k response has a 2xx status code
+func (o *StorageCreateHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage create Http o k response has a 3xx status code
+func (o *StorageCreateHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage create Http o k response has a 4xx status code
+func (o *StorageCreateHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage create Http o k response has a 5xx status code
+func (o *StorageCreateHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage create Http o k response a status code equal to that given
+func (o *StorageCreateHTTPOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StorageCreateHTTPOK) Error() string {
 	return fmt.Sprintf("[PUT /provisioning/v1/storage][%d] storageCreateHttpOK  %+v", 200, o.Payload)
 }
+
+func (o *StorageCreateHTTPOK) String() string {
+	return fmt.Sprintf("[PUT /provisioning/v1/storage][%d] storageCreateHttpOK  %+v", 200, o.Payload)
+}
+
 func (o *StorageCreateHTTPOK) GetPayload() *models.Storage {
 	return o.Payload
 }
@@ -88,7 +119,8 @@ func NewStorageCreateHTTPBadRequest() *StorageCreateHTTPBadRequest {
 	return &StorageCreateHTTPBadRequest{}
 }
 
-/* StorageCreateHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageCreateHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -96,9 +128,39 @@ type StorageCreateHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage create Http bad request response has a 2xx status code
+func (o *StorageCreateHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage create Http bad request response has a 3xx status code
+func (o *StorageCreateHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage create Http bad request response has a 4xx status code
+func (o *StorageCreateHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage create Http bad request response has a 5xx status code
+func (o *StorageCreateHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage create Http bad request response a status code equal to that given
+func (o *StorageCreateHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageCreateHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /provisioning/v1/storage][%d] storageCreateHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageCreateHTTPBadRequest) String() string {
+	return fmt.Sprintf("[PUT /provisioning/v1/storage][%d] storageCreateHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageCreateHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -120,7 +182,8 @@ func NewStorageCreateHTTPConflict() *StorageCreateHTTPConflict {
 	return &StorageCreateHTTPConflict{}
 }
 
-/* StorageCreateHTTPConflict describes a response with status code 409, with default header values.
+/*
+StorageCreateHTTPConflict describes a response with status code 409, with default header values.
 
 ErrResponse
 */
@@ -128,9 +191,39 @@ type StorageCreateHTTPConflict struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage create Http conflict response has a 2xx status code
+func (o *StorageCreateHTTPConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage create Http conflict response has a 3xx status code
+func (o *StorageCreateHTTPConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage create Http conflict response has a 4xx status code
+func (o *StorageCreateHTTPConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage create Http conflict response has a 5xx status code
+func (o *StorageCreateHTTPConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage create Http conflict response a status code equal to that given
+func (o *StorageCreateHTTPConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *StorageCreateHTTPConflict) Error() string {
 	return fmt.Sprintf("[PUT /provisioning/v1/storage][%d] storageCreateHttpConflict  %+v", 409, o.Payload)
 }
+
+func (o *StorageCreateHTTPConflict) String() string {
+	return fmt.Sprintf("[PUT /provisioning/v1/storage][%d] storageCreateHttpConflict  %+v", 409, o.Payload)
+}
+
 func (o *StorageCreateHTTPConflict) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -147,7 +240,8 @@ func (o *StorageCreateHTTPConflict) readResponse(response runtime.ClientResponse
 	return nil
 }
 
-/*StorageCreateHTTPBody storage create HTTP body
+/*
+StorageCreateHTTPBody storage create HTTP body
 swagger:model StorageCreateHTTPBody
 */
 type StorageCreateHTTPBody struct {
@@ -156,7 +250,7 @@ type StorageCreateHTTPBody struct {
 	GenerateSftpPassword bool `json:"generate_sftp_password,omitempty"`
 
 	// location
-	// Enum: [s-ed1 s-darz1 s-ws1 ams sin fra mia]
+	// Enum: [s-ed1 s-darz1 s-ws1 s-dt2 ams sin fra mia]
 	Location string `json:"location,omitempty"`
 
 	// name
@@ -192,7 +286,7 @@ var storageCreateHttpBodyTypeLocationPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["s-ed1","s-darz1","s-ws1","ams","sin","fra","mia"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["s-ed1","s-darz1","s-ws1","s-dt2","ams","sin","fra","mia"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -210,6 +304,9 @@ const (
 
 	// StorageCreateHTTPBodyLocationSDashWs1 captures enum value "s-ws1"
 	StorageCreateHTTPBodyLocationSDashWs1 string = "s-ws1"
+
+	// StorageCreateHTTPBodyLocationSDashDt2 captures enum value "s-dt2"
+	StorageCreateHTTPBodyLocationSDashDt2 string = "s-dt2"
 
 	// StorageCreateHTTPBodyLocationAms captures enum value "ams"
 	StorageCreateHTTPBodyLocationAms string = "ams"

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // KeyListHTTPV2Reader is a Reader for the KeyListHTTPV2 structure.
@@ -45,7 +45,8 @@ func NewKeyListHTTPV2OK() *KeyListHTTPV2OK {
 	return &KeyListHTTPV2OK{}
 }
 
-/* KeyListHTTPV2OK describes a response with status code 200, with default header values.
+/*
+KeyListHTTPV2OK describes a response with status code 200, with default header values.
 
 KeyListEndpointRes
 */
@@ -53,9 +54,39 @@ type KeyListHTTPV2OK struct {
 	Payload *models.KeyListEndpointRes
 }
 
+// IsSuccess returns true when this key list Http v2 o k response has a 2xx status code
+func (o *KeyListHTTPV2OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this key list Http v2 o k response has a 3xx status code
+func (o *KeyListHTTPV2OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key list Http v2 o k response has a 4xx status code
+func (o *KeyListHTTPV2OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this key list Http v2 o k response has a 5xx status code
+func (o *KeyListHTTPV2OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key list Http v2 o k response a status code equal to that given
+func (o *KeyListHTTPV2OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *KeyListHTTPV2OK) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v2/key][%d] keyListHttpV2OK  %+v", 200, o.Payload)
 }
+
+func (o *KeyListHTTPV2OK) String() string {
+	return fmt.Sprintf("[GET /provisioning/v2/key][%d] keyListHttpV2OK  %+v", 200, o.Payload)
+}
+
 func (o *KeyListHTTPV2OK) GetPayload() *models.KeyListEndpointRes {
 	return o.Payload
 }
@@ -77,7 +108,8 @@ func NewKeyListHTTPV2BadRequest() *KeyListHTTPV2BadRequest {
 	return &KeyListHTTPV2BadRequest{}
 }
 
-/* KeyListHTTPV2BadRequest describes a response with status code 400, with default header values.
+/*
+KeyListHTTPV2BadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -85,9 +117,39 @@ type KeyListHTTPV2BadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this key list Http v2 bad request response has a 2xx status code
+func (o *KeyListHTTPV2BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this key list Http v2 bad request response has a 3xx status code
+func (o *KeyListHTTPV2BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key list Http v2 bad request response has a 4xx status code
+func (o *KeyListHTTPV2BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this key list Http v2 bad request response has a 5xx status code
+func (o *KeyListHTTPV2BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key list Http v2 bad request response a status code equal to that given
+func (o *KeyListHTTPV2BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *KeyListHTTPV2BadRequest) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v2/key][%d] keyListHttpV2BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *KeyListHTTPV2BadRequest) String() string {
+	return fmt.Sprintf("[GET /provisioning/v2/key][%d] keyListHttpV2BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *KeyListHTTPV2BadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

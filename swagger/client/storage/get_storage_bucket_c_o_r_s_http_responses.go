@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // GetStorageBucketCORSHTTPReader is a Reader for the GetStorageBucketCORSHTTP structure.
@@ -47,7 +47,8 @@ func NewGetStorageBucketCORSHTTPOK() *GetStorageBucketCORSHTTPOK {
 	return &GetStorageBucketCORSHTTPOK{}
 }
 
-/* GetStorageBucketCORSHTTPOK describes a response with status code 200, with default header values.
+/*
+GetStorageBucketCORSHTTPOK describes a response with status code 200, with default header values.
 
 StorageGetBucketCorsEndpointRes
 */
@@ -55,9 +56,39 @@ type GetStorageBucketCORSHTTPOK struct {
 	Payload *models.StorageGetBucketCorsEndpointRes
 }
 
+// IsSuccess returns true when this get storage bucket c o r s Http o k response has a 2xx status code
+func (o *GetStorageBucketCORSHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get storage bucket c o r s Http o k response has a 3xx status code
+func (o *GetStorageBucketCORSHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get storage bucket c o r s Http o k response has a 4xx status code
+func (o *GetStorageBucketCORSHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get storage bucket c o r s Http o k response has a 5xx status code
+func (o *GetStorageBucketCORSHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get storage bucket c o r s Http o k response a status code equal to that given
+func (o *GetStorageBucketCORSHTTPOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetStorageBucketCORSHTTPOK) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/bucket/{name}/cors][%d] getStorageBucketCORSHttpOK  %+v", 200, o.Payload)
 }
+
+func (o *GetStorageBucketCORSHTTPOK) String() string {
+	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/bucket/{name}/cors][%d] getStorageBucketCORSHttpOK  %+v", 200, o.Payload)
+}
+
 func (o *GetStorageBucketCORSHTTPOK) GetPayload() *models.StorageGetBucketCorsEndpointRes {
 	return o.Payload
 }
@@ -79,7 +110,8 @@ func NewGetStorageBucketCORSHTTPBadRequest() *GetStorageBucketCORSHTTPBadRequest
 	return &GetStorageBucketCORSHTTPBadRequest{}
 }
 
-/* GetStorageBucketCORSHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+GetStorageBucketCORSHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -87,9 +119,39 @@ type GetStorageBucketCORSHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this get storage bucket c o r s Http bad request response has a 2xx status code
+func (o *GetStorageBucketCORSHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get storage bucket c o r s Http bad request response has a 3xx status code
+func (o *GetStorageBucketCORSHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get storage bucket c o r s Http bad request response has a 4xx status code
+func (o *GetStorageBucketCORSHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get storage bucket c o r s Http bad request response has a 5xx status code
+func (o *GetStorageBucketCORSHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get storage bucket c o r s Http bad request response a status code equal to that given
+func (o *GetStorageBucketCORSHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetStorageBucketCORSHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/bucket/{name}/cors][%d] getStorageBucketCORSHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetStorageBucketCORSHTTPBadRequest) String() string {
+	return fmt.Sprintf("[GET /provisioning/v1/storage/{id}/s3/bucket/{name}/cors][%d] getStorageBucketCORSHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetStorageBucketCORSHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -106,7 +168,8 @@ func (o *GetStorageBucketCORSHTTPBadRequest) readResponse(response runtime.Clien
 	return nil
 }
 
-/*GetStorageBucketCORSHTTPBody get storage bucket c o r s HTTP body
+/*
+GetStorageBucketCORSHTTPBody get storage bucket c o r s HTTP body
 swagger:model GetStorageBucketCORSHTTPBody
 */
 type GetStorageBucketCORSHTTPBody struct {

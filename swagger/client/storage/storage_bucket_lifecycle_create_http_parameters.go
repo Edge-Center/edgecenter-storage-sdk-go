@@ -53,10 +53,12 @@ func NewStorageBucketLifecycleCreateHTTPParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/* StorageBucketLifecycleCreateHTTPParams contains all the parameters to send to the API endpoint
-   for the storage bucket lifecycle create Http operation.
+/*
+StorageBucketLifecycleCreateHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the storage bucket lifecycle create Http operation.
+
+	Typically these are written to a http.Request.
 */
 type StorageBucketLifecycleCreateHTTPParams struct {
 

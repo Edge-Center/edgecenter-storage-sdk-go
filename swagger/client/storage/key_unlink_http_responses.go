@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // KeyUnlinkHTTPReader is a Reader for the KeyUnlinkHTTP structure.
@@ -45,14 +45,44 @@ func NewKeyUnlinkHTTPNoContent() *KeyUnlinkHTTPNoContent {
 	return &KeyUnlinkHTTPNoContent{}
 }
 
-/* KeyUnlinkHTTPNoContent describes a response with status code 204, with default header values.
+/*
+KeyUnlinkHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type KeyUnlinkHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this key unlink Http no content response has a 2xx status code
+func (o *KeyUnlinkHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this key unlink Http no content response has a 3xx status code
+func (o *KeyUnlinkHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key unlink Http no content response has a 4xx status code
+func (o *KeyUnlinkHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this key unlink Http no content response has a 5xx status code
+func (o *KeyUnlinkHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key unlink Http no content response a status code equal to that given
+func (o *KeyUnlinkHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *KeyUnlinkHTTPNoContent) Error() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/unlink][%d] keyUnlinkHttpNoContent ", 204)
+}
+
+func (o *KeyUnlinkHTTPNoContent) String() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/unlink][%d] keyUnlinkHttpNoContent ", 204)
 }
 
@@ -66,7 +96,8 @@ func NewKeyUnlinkHTTPBadRequest() *KeyUnlinkHTTPBadRequest {
 	return &KeyUnlinkHTTPBadRequest{}
 }
 
-/* KeyUnlinkHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+KeyUnlinkHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -74,9 +105,39 @@ type KeyUnlinkHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this key unlink Http bad request response has a 2xx status code
+func (o *KeyUnlinkHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this key unlink Http bad request response has a 3xx status code
+func (o *KeyUnlinkHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key unlink Http bad request response has a 4xx status code
+func (o *KeyUnlinkHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this key unlink Http bad request response has a 5xx status code
+func (o *KeyUnlinkHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key unlink Http bad request response a status code equal to that given
+func (o *KeyUnlinkHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *KeyUnlinkHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/unlink][%d] keyUnlinkHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *KeyUnlinkHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/unlink][%d] keyUnlinkHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *KeyUnlinkHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

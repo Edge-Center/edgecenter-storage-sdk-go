@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// Event Event for storage notification
+// EventResponse Event for storage notification
 //
-// swagger:model Event
-type Event struct {
+// swagger:model EventResponse
+type EventResponse struct {
 
 	// bucket name
 	BucketName string `json:"bucket_name,omitempty"`
@@ -38,12 +38,12 @@ type Event struct {
 	// storage name
 	StorageName string `json:"storage_name,omitempty"`
 
-	// UUID
+	// uuid
 	UUID string `json:"uuid,omitempty"`
 }
 
-// Validate validates this event
-func (m *Event) Validate(formats strfmt.Registry) error {
+// Validate validates this event response
+func (m *EventResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateName(formats); err != nil {
@@ -56,7 +56,7 @@ func (m *Event) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Event) validateName(formats strfmt.Registry) error {
+func (m *EventResponse) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
@@ -65,13 +65,13 @@ func (m *Event) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this event based on context it is used
-func (m *Event) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this event response based on context it is used
+func (m *EventResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *Event) MarshalBinary() ([]byte, error) {
+func (m *EventResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -79,8 +79,8 @@ func (m *Event) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *Event) UnmarshalBinary(b []byte) error {
-	var res Event
+func (m *EventResponse) UnmarshalBinary(b []byte) error {
+	var res EventResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -42,9 +42,9 @@ type ClientService interface {
 }
 
 /*
-  KeyCreateHTTP creates key
+KeyCreateHTTP creates key
 
-  Creates key and returns it
+Creates key and returns it
 */
 func (a *Client) KeyCreateHTTP(params *KeyCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*KeyCreateHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -83,9 +83,9 @@ func (a *Client) KeyCreateHTTP(params *KeyCreateHTTPParams, authInfo runtime.Cli
 }
 
 /*
-  KeyDeleteHTTP deletes key
+KeyDeleteHTTP deletes key
 
-  Deletes key
+Deletes key
 */
 func (a *Client) KeyDeleteHTTP(params *KeyDeleteHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*KeyDeleteHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -124,9 +124,9 @@ func (a *Client) KeyDeleteHTTP(params *KeyDeleteHTTPParams, authInfo runtime.Cli
 }
 
 /*
-  KeyListHTTPV1 shows all keys
+KeyListHTTPV1 shows all keys
 
-  Shows all keys
+Shows all keys
 */
 func (a *Client) KeyListHTTPV1(params *KeyListHTTPV1Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*KeyListHTTPV1OK, error) {
 	// TODO: Validate the params before sending
@@ -165,9 +165,9 @@ func (a *Client) KeyListHTTPV1(params *KeyListHTTPV1Params, authInfo runtime.Cli
 }
 
 /*
-  KeyListHTTPV2 shows all keys
+KeyListHTTPV2 shows all keys
 
-  Shows all keys
+Shows all keys
 */
 func (a *Client) KeyListHTTPV2(params *KeyListHTTPV2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*KeyListHTTPV2OK, error) {
 	// TODO: Validate the params before sending

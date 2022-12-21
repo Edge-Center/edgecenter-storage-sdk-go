@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageBucketRemoveHTTPReader is a Reader for the StorageBucketRemoveHTTP structure.
@@ -45,14 +45,44 @@ func NewStorageBucketRemoveHTTPNoContent() *StorageBucketRemoveHTTPNoContent {
 	return &StorageBucketRemoveHTTPNoContent{}
 }
 
-/* StorageBucketRemoveHTTPNoContent describes a response with status code 204, with default header values.
+/*
+StorageBucketRemoveHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type StorageBucketRemoveHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this storage bucket remove Http no content response has a 2xx status code
+func (o *StorageBucketRemoveHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage bucket remove Http no content response has a 3xx status code
+func (o *StorageBucketRemoveHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket remove Http no content response has a 4xx status code
+func (o *StorageBucketRemoveHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage bucket remove Http no content response has a 5xx status code
+func (o *StorageBucketRemoveHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket remove Http no content response a status code equal to that given
+func (o *StorageBucketRemoveHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *StorageBucketRemoveHTTPNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketRemoveHttpNoContent ", 204)
+}
+
+func (o *StorageBucketRemoveHTTPNoContent) String() string {
 	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketRemoveHttpNoContent ", 204)
 }
 
@@ -66,7 +96,8 @@ func NewStorageBucketRemoveHTTPBadRequest() *StorageBucketRemoveHTTPBadRequest {
 	return &StorageBucketRemoveHTTPBadRequest{}
 }
 
-/* StorageBucketRemoveHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageBucketRemoveHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -74,9 +105,39 @@ type StorageBucketRemoveHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage bucket remove Http bad request response has a 2xx status code
+func (o *StorageBucketRemoveHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage bucket remove Http bad request response has a 3xx status code
+func (o *StorageBucketRemoveHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket remove Http bad request response has a 4xx status code
+func (o *StorageBucketRemoveHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage bucket remove Http bad request response has a 5xx status code
+func (o *StorageBucketRemoveHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket remove Http bad request response a status code equal to that given
+func (o *StorageBucketRemoveHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageBucketRemoveHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketRemoveHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageBucketRemoveHTTPBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketRemoveHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageBucketRemoveHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

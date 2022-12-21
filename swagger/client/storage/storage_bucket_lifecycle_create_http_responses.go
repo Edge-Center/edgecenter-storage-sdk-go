@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageBucketLifecycleCreateHTTPReader is a Reader for the StorageBucketLifecycleCreateHTTP structure.
@@ -47,14 +47,44 @@ func NewStorageBucketLifecycleCreateHTTPNoContent() *StorageBucketLifecycleCreat
 	return &StorageBucketLifecycleCreateHTTPNoContent{}
 }
 
-/* StorageBucketLifecycleCreateHTTPNoContent describes a response with status code 204, with default header values.
+/*
+StorageBucketLifecycleCreateHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type StorageBucketLifecycleCreateHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this storage bucket lifecycle create Http no content response has a 2xx status code
+func (o *StorageBucketLifecycleCreateHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage bucket lifecycle create Http no content response has a 3xx status code
+func (o *StorageBucketLifecycleCreateHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket lifecycle create Http no content response has a 4xx status code
+func (o *StorageBucketLifecycleCreateHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage bucket lifecycle create Http no content response has a 5xx status code
+func (o *StorageBucketLifecycleCreateHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket lifecycle create Http no content response a status code equal to that given
+func (o *StorageBucketLifecycleCreateHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *StorageBucketLifecycleCreateHTTPNoContent) Error() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/lifecycle][%d] storageBucketLifecycleCreateHttpNoContent ", 204)
+}
+
+func (o *StorageBucketLifecycleCreateHTTPNoContent) String() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/lifecycle][%d] storageBucketLifecycleCreateHttpNoContent ", 204)
 }
 
@@ -68,7 +98,8 @@ func NewStorageBucketLifecycleCreateHTTPBadRequest() *StorageBucketLifecycleCrea
 	return &StorageBucketLifecycleCreateHTTPBadRequest{}
 }
 
-/* StorageBucketLifecycleCreateHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageBucketLifecycleCreateHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -76,9 +107,39 @@ type StorageBucketLifecycleCreateHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage bucket lifecycle create Http bad request response has a 2xx status code
+func (o *StorageBucketLifecycleCreateHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage bucket lifecycle create Http bad request response has a 3xx status code
+func (o *StorageBucketLifecycleCreateHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket lifecycle create Http bad request response has a 4xx status code
+func (o *StorageBucketLifecycleCreateHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage bucket lifecycle create Http bad request response has a 5xx status code
+func (o *StorageBucketLifecycleCreateHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket lifecycle create Http bad request response a status code equal to that given
+func (o *StorageBucketLifecycleCreateHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageBucketLifecycleCreateHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/lifecycle][%d] storageBucketLifecycleCreateHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageBucketLifecycleCreateHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/lifecycle][%d] storageBucketLifecycleCreateHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageBucketLifecycleCreateHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -95,7 +156,8 @@ func (o *StorageBucketLifecycleCreateHTTPBadRequest) readResponse(response runti
 	return nil
 }
 
-/*StorageBucketLifecycleCreateHTTPBody storage bucket lifecycle create HTTP body
+/*
+StorageBucketLifecycleCreateHTTPBody storage bucket lifecycle create HTTP body
 swagger:model StorageBucketLifecycleCreateHTTPBody
 */
 type StorageBucketLifecycleCreateHTTPBody struct {

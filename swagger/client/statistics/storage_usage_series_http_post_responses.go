@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageUsageSeriesHTTPPostReader is a Reader for the StorageUsageSeriesHTTPPost structure.
@@ -47,7 +47,8 @@ func NewStorageUsageSeriesHTTPPostOK() *StorageUsageSeriesHTTPPostOK {
 	return &StorageUsageSeriesHTTPPostOK{}
 }
 
-/* StorageUsageSeriesHTTPPostOK describes a response with status code 200, with default header values.
+/*
+StorageUsageSeriesHTTPPostOK describes a response with status code 200, with default header values.
 
 StorageUsageSeriesEndpointRes
 */
@@ -55,9 +56,39 @@ type StorageUsageSeriesHTTPPostOK struct {
 	Payload *models.StorageUsageSeriesEndpointRes
 }
 
+// IsSuccess returns true when this storage usage series Http post o k response has a 2xx status code
+func (o *StorageUsageSeriesHTTPPostOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage usage series Http post o k response has a 3xx status code
+func (o *StorageUsageSeriesHTTPPostOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage usage series Http post o k response has a 4xx status code
+func (o *StorageUsageSeriesHTTPPostOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage usage series Http post o k response has a 5xx status code
+func (o *StorageUsageSeriesHTTPPostOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage usage series Http post o k response a status code equal to that given
+func (o *StorageUsageSeriesHTTPPostOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StorageUsageSeriesHTTPPostOK) Error() string {
 	return fmt.Sprintf("[POST /stats/v1/storage/usage/series][%d] storageUsageSeriesHttpPostOK  %+v", 200, o.Payload)
 }
+
+func (o *StorageUsageSeriesHTTPPostOK) String() string {
+	return fmt.Sprintf("[POST /stats/v1/storage/usage/series][%d] storageUsageSeriesHttpPostOK  %+v", 200, o.Payload)
+}
+
 func (o *StorageUsageSeriesHTTPPostOK) GetPayload() *models.StorageUsageSeriesEndpointRes {
 	return o.Payload
 }
@@ -79,7 +110,8 @@ func NewStorageUsageSeriesHTTPPostBadRequest() *StorageUsageSeriesHTTPPostBadReq
 	return &StorageUsageSeriesHTTPPostBadRequest{}
 }
 
-/* StorageUsageSeriesHTTPPostBadRequest describes a response with status code 400, with default header values.
+/*
+StorageUsageSeriesHTTPPostBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -87,9 +119,39 @@ type StorageUsageSeriesHTTPPostBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage usage series Http post bad request response has a 2xx status code
+func (o *StorageUsageSeriesHTTPPostBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage usage series Http post bad request response has a 3xx status code
+func (o *StorageUsageSeriesHTTPPostBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage usage series Http post bad request response has a 4xx status code
+func (o *StorageUsageSeriesHTTPPostBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage usage series Http post bad request response has a 5xx status code
+func (o *StorageUsageSeriesHTTPPostBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage usage series Http post bad request response a status code equal to that given
+func (o *StorageUsageSeriesHTTPPostBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageUsageSeriesHTTPPostBadRequest) Error() string {
 	return fmt.Sprintf("[POST /stats/v1/storage/usage/series][%d] storageUsageSeriesHttpPostBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageUsageSeriesHTTPPostBadRequest) String() string {
+	return fmt.Sprintf("[POST /stats/v1/storage/usage/series][%d] storageUsageSeriesHttpPostBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageUsageSeriesHTTPPostBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -106,7 +168,8 @@ func (o *StorageUsageSeriesHTTPPostBadRequest) readResponse(response runtime.Cli
 	return nil
 }
 
-/*StorageUsageSeriesHTTPPostBody storage usage series HTTP post body
+/*
+StorageUsageSeriesHTTPPostBody storage usage series HTTP post body
 swagger:model StorageUsageSeriesHTTPPostBody
 */
 type StorageUsageSeriesHTTPPostBody struct {

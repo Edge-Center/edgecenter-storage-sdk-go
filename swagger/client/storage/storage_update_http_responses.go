@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageUpdateHTTPReader is a Reader for the StorageUpdateHTTP structure.
@@ -47,7 +47,8 @@ func NewStorageUpdateHTTPOK() *StorageUpdateHTTPOK {
 	return &StorageUpdateHTTPOK{}
 }
 
-/* StorageUpdateHTTPOK describes a response with status code 200, with default header values.
+/*
+StorageUpdateHTTPOK describes a response with status code 200, with default header values.
 
 Storage
 */
@@ -55,9 +56,39 @@ type StorageUpdateHTTPOK struct {
 	Payload *models.Storage
 }
 
+// IsSuccess returns true when this storage update Http o k response has a 2xx status code
+func (o *StorageUpdateHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage update Http o k response has a 3xx status code
+func (o *StorageUpdateHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage update Http o k response has a 4xx status code
+func (o *StorageUpdateHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage update Http o k response has a 5xx status code
+func (o *StorageUpdateHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage update Http o k response a status code equal to that given
+func (o *StorageUpdateHTTPOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StorageUpdateHTTPOK) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}][%d] storageUpdateHttpOK  %+v", 200, o.Payload)
 }
+
+func (o *StorageUpdateHTTPOK) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}][%d] storageUpdateHttpOK  %+v", 200, o.Payload)
+}
+
 func (o *StorageUpdateHTTPOK) GetPayload() *models.Storage {
 	return o.Payload
 }
@@ -79,7 +110,8 @@ func NewStorageUpdateHTTPBadRequest() *StorageUpdateHTTPBadRequest {
 	return &StorageUpdateHTTPBadRequest{}
 }
 
-/* StorageUpdateHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageUpdateHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -87,9 +119,39 @@ type StorageUpdateHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage update Http bad request response has a 2xx status code
+func (o *StorageUpdateHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage update Http bad request response has a 3xx status code
+func (o *StorageUpdateHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage update Http bad request response has a 4xx status code
+func (o *StorageUpdateHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage update Http bad request response has a 5xx status code
+func (o *StorageUpdateHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage update Http bad request response a status code equal to that given
+func (o *StorageUpdateHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageUpdateHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}][%d] storageUpdateHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageUpdateHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}][%d] storageUpdateHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageUpdateHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -106,7 +168,8 @@ func (o *StorageUpdateHTTPBadRequest) readResponse(response runtime.ClientRespon
 	return nil
 }
 
-/*StorageUpdateHTTPBody storage update HTTP body
+/*
+StorageUpdateHTTPBody storage update HTTP body
 swagger:model StorageUpdateHTTPBody
 */
 type StorageUpdateHTTPBody struct {

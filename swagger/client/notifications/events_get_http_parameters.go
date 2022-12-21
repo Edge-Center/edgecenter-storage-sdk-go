@@ -52,10 +52,12 @@ func NewEventsGetHTTPParamsWithHTTPClient(client *http.Client) *EventsGetHTTPPar
 	}
 }
 
-/* EventsGetHTTPParams contains all the parameters to send to the API endpoint
-   for the events get Http operation.
+/*
+EventsGetHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the events get Http operation.
+
+	Typically these are written to a http.Request.
 */
 type EventsGetHTTPParams struct {
 	timeout    time.Duration

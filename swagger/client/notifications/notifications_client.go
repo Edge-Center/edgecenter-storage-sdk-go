@@ -46,7 +46,7 @@ type ClientService interface {
 }
 
 /*
-  EventCreateHTTP adds client event
+EventCreateHTTP adds client event
 */
 func (a *Client) EventCreateHTTP(params *EventCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EventCreateHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -85,7 +85,7 @@ func (a *Client) EventCreateHTTP(params *EventCreateHTTPParams, authInfo runtime
 }
 
 /*
-  EventDeleteHTTP deletes client event
+EventDeleteHTTP deletes client event
 */
 func (a *Client) EventDeleteHTTP(params *EventDeleteHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EventDeleteHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -124,7 +124,7 @@ func (a *Client) EventDeleteHTTP(params *EventDeleteHTTPParams, authInfo runtime
 }
 
 /*
-  EventUpdateHTTP changes client event
+EventUpdateHTTP changes client event
 */
 func (a *Client) EventUpdateHTTP(params *EventUpdateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EventUpdateHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -163,9 +163,10 @@ func (a *Client) EventUpdateHTTP(params *EventUpdateHTTPParams, authInfo runtime
 }
 
 /*
-  EventsCreateHTTP upserts patch client events
+	EventsCreateHTTP upserts patch client events
 
-  When you set body be notice that fields of root structure will be created or updated
+	When you set body be notice that fields of root structure will be created or updated
+
 but another fields will be no affected.
 Returns client events.
 */
@@ -206,9 +207,9 @@ func (a *Client) EventsCreateHTTP(params *EventsCreateHTTPParams, authInfo runti
 }
 
 /*
-  EventsGetHTTP gets events
+EventsGetHTTP gets events
 
-  Returns client events
+Returns client events
 */
 func (a *Client) EventsGetHTTP(params *EventsGetHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EventsGetHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -247,9 +248,9 @@ func (a *Client) EventsGetHTTP(params *EventsGetHTTPParams, authInfo runtime.Cli
 }
 
 /*
-  EventsMetaHTTP gets possible list of events
+EventsMetaHTTP gets possible list of events
 
-  Returns descriptions about events
+Returns descriptions about events
 */
 func (a *Client) EventsMetaHTTP(params *EventsMetaHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EventsMetaHTTPOK, error) {
 	// TODO: Validate the params before sending

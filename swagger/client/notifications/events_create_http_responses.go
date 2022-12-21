@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // EventsCreateHTTPReader is a Reader for the EventsCreateHTTP structure.
@@ -57,24 +57,55 @@ func NewEventsCreateHTTPOK() *EventsCreateHTTPOK {
 	return &EventsCreateHTTPOK{}
 }
 
-/* EventsCreateHTTPOK describes a response with status code 200, with default header values.
+/*
+EventsCreateHTTPOK describes a response with status code 200, with default header values.
 
 EventsResponse
 */
 type EventsCreateHTTPOK struct {
-	Payload *models.Events
+	Payload *models.EventsResponse
+}
+
+// IsSuccess returns true when this events create Http o k response has a 2xx status code
+func (o *EventsCreateHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this events create Http o k response has a 3xx status code
+func (o *EventsCreateHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events create Http o k response has a 4xx status code
+func (o *EventsCreateHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this events create Http o k response has a 5xx status code
+func (o *EventsCreateHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events create Http o k response a status code equal to that given
+func (o *EventsCreateHTTPOK) IsCode(code int) bool {
+	return code == 200
 }
 
 func (o *EventsCreateHTTPOK) Error() string {
 	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpOK  %+v", 200, o.Payload)
 }
-func (o *EventsCreateHTTPOK) GetPayload() *models.Events {
+
+func (o *EventsCreateHTTPOK) String() string {
+	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpOK  %+v", 200, o.Payload)
+}
+
+func (o *EventsCreateHTTPOK) GetPayload() *models.EventsResponse {
 	return o.Payload
 }
 
 func (o *EventsCreateHTTPOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Events)
+	o.Payload = new(models.EventsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -89,7 +120,8 @@ func NewEventsCreateHTTPBadRequest() *EventsCreateHTTPBadRequest {
 	return &EventsCreateHTTPBadRequest{}
 }
 
-/* EventsCreateHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+EventsCreateHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -97,9 +129,39 @@ type EventsCreateHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this events create Http bad request response has a 2xx status code
+func (o *EventsCreateHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this events create Http bad request response has a 3xx status code
+func (o *EventsCreateHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events create Http bad request response has a 4xx status code
+func (o *EventsCreateHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this events create Http bad request response has a 5xx status code
+func (o *EventsCreateHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events create Http bad request response a status code equal to that given
+func (o *EventsCreateHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *EventsCreateHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *EventsCreateHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *EventsCreateHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -121,7 +183,8 @@ func NewEventsCreateHTTPUnauthorized() *EventsCreateHTTPUnauthorized {
 	return &EventsCreateHTTPUnauthorized{}
 }
 
-/* EventsCreateHTTPUnauthorized describes a response with status code 401, with default header values.
+/*
+EventsCreateHTTPUnauthorized describes a response with status code 401, with default header values.
 
 ErrResponse
 */
@@ -129,9 +192,39 @@ type EventsCreateHTTPUnauthorized struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this events create Http unauthorized response has a 2xx status code
+func (o *EventsCreateHTTPUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this events create Http unauthorized response has a 3xx status code
+func (o *EventsCreateHTTPUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events create Http unauthorized response has a 4xx status code
+func (o *EventsCreateHTTPUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this events create Http unauthorized response has a 5xx status code
+func (o *EventsCreateHTTPUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events create Http unauthorized response a status code equal to that given
+func (o *EventsCreateHTTPUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *EventsCreateHTTPUnauthorized) Error() string {
 	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *EventsCreateHTTPUnauthorized) String() string {
+	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *EventsCreateHTTPUnauthorized) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -153,7 +246,8 @@ func NewEventsCreateHTTPConflict() *EventsCreateHTTPConflict {
 	return &EventsCreateHTTPConflict{}
 }
 
-/* EventsCreateHTTPConflict describes a response with status code 409, with default header values.
+/*
+EventsCreateHTTPConflict describes a response with status code 409, with default header values.
 
 ErrResponse
 */
@@ -161,9 +255,39 @@ type EventsCreateHTTPConflict struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this events create Http conflict response has a 2xx status code
+func (o *EventsCreateHTTPConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this events create Http conflict response has a 3xx status code
+func (o *EventsCreateHTTPConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events create Http conflict response has a 4xx status code
+func (o *EventsCreateHTTPConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this events create Http conflict response has a 5xx status code
+func (o *EventsCreateHTTPConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events create Http conflict response a status code equal to that given
+func (o *EventsCreateHTTPConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *EventsCreateHTTPConflict) Error() string {
 	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpConflict  %+v", 409, o.Payload)
 }
+
+func (o *EventsCreateHTTPConflict) String() string {
+	return fmt.Sprintf("[POST /notifications/v1/events][%d] eventsCreateHttpConflict  %+v", 409, o.Payload)
+}
+
 func (o *EventsCreateHTTPConflict) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

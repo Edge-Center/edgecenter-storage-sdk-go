@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Events Events for storage notification
+// EventsResponse Events for storage notification
 //
-// swagger:model Events
-type Events struct {
+// swagger:model EventsResponse
+type EventsResponse struct {
 
 	// reaching files quantity
 	ReachingFilesQuantity []*LimitByCount `json:"reaching_files_quantity"`
@@ -32,8 +32,8 @@ type Events struct {
 	ReachingUsedTraffic []*LimitByBytes `json:"reaching_used_traffic"`
 }
 
-// Validate validates this events
-func (m *Events) Validate(formats strfmt.Registry) error {
+// Validate validates this events response
+func (m *EventsResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateReachingFilesQuantity(formats); err != nil {
@@ -58,7 +58,7 @@ func (m *Events) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Events) validateReachingFilesQuantity(formats strfmt.Registry) error {
+func (m *EventsResponse) validateReachingFilesQuantity(formats strfmt.Registry) error {
 	if swag.IsZero(m.ReachingFilesQuantity) { // not required
 		return nil
 	}
@@ -84,7 +84,7 @@ func (m *Events) validateReachingFilesQuantity(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Events) validateReachingUsedRequests(formats strfmt.Registry) error {
+func (m *EventsResponse) validateReachingUsedRequests(formats strfmt.Registry) error {
 	if swag.IsZero(m.ReachingUsedRequests) { // not required
 		return nil
 	}
@@ -110,7 +110,7 @@ func (m *Events) validateReachingUsedRequests(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Events) validateReachingUsedSpace(formats strfmt.Registry) error {
+func (m *EventsResponse) validateReachingUsedSpace(formats strfmt.Registry) error {
 	if swag.IsZero(m.ReachingUsedSpace) { // not required
 		return nil
 	}
@@ -136,7 +136,7 @@ func (m *Events) validateReachingUsedSpace(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Events) validateReachingUsedTraffic(formats strfmt.Registry) error {
+func (m *EventsResponse) validateReachingUsedTraffic(formats strfmt.Registry) error {
 	if swag.IsZero(m.ReachingUsedTraffic) { // not required
 		return nil
 	}
@@ -162,8 +162,8 @@ func (m *Events) validateReachingUsedTraffic(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this events based on the context it is used
-func (m *Events) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this events response based on the context it is used
+func (m *EventsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateReachingFilesQuantity(ctx, formats); err != nil {
@@ -188,7 +188,7 @@ func (m *Events) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 	return nil
 }
 
-func (m *Events) contextValidateReachingFilesQuantity(ctx context.Context, formats strfmt.Registry) error {
+func (m *EventsResponse) contextValidateReachingFilesQuantity(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.ReachingFilesQuantity); i++ {
 
@@ -208,7 +208,7 @@ func (m *Events) contextValidateReachingFilesQuantity(ctx context.Context, forma
 	return nil
 }
 
-func (m *Events) contextValidateReachingUsedRequests(ctx context.Context, formats strfmt.Registry) error {
+func (m *EventsResponse) contextValidateReachingUsedRequests(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.ReachingUsedRequests); i++ {
 
@@ -228,7 +228,7 @@ func (m *Events) contextValidateReachingUsedRequests(ctx context.Context, format
 	return nil
 }
 
-func (m *Events) contextValidateReachingUsedSpace(ctx context.Context, formats strfmt.Registry) error {
+func (m *EventsResponse) contextValidateReachingUsedSpace(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.ReachingUsedSpace); i++ {
 
@@ -248,7 +248,7 @@ func (m *Events) contextValidateReachingUsedSpace(ctx context.Context, formats s
 	return nil
 }
 
-func (m *Events) contextValidateReachingUsedTraffic(ctx context.Context, formats strfmt.Registry) error {
+func (m *EventsResponse) contextValidateReachingUsedTraffic(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.ReachingUsedTraffic); i++ {
 
@@ -269,7 +269,7 @@ func (m *Events) contextValidateReachingUsedTraffic(ctx context.Context, formats
 }
 
 // MarshalBinary interface implementation
-func (m *Events) MarshalBinary() ([]byte, error) {
+func (m *EventsResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -277,8 +277,8 @@ func (m *Events) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *Events) UnmarshalBinary(b []byte) error {
-	var res Events
+func (m *EventsResponse) UnmarshalBinary(b []byte) error {
+	var res EventsResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
