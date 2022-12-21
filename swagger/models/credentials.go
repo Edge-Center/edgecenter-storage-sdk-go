@@ -22,11 +22,11 @@ type Credentials struct {
 	// keys
 	Keys []*Key `json:"keys"`
 
-	// sftp password
-	SftpPassword string `json:"sftp_password,omitempty"`
-
 	// s3
 	S3 *S3Credentials `json:"s3,omitempty"`
+
+	// sftp password
+	SftpPassword string `json:"sftp_password,omitempty"`
 }
 
 // Validate validates this credentials

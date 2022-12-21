@@ -67,6 +67,7 @@ issues:
   - "exported var `Err.*` should have comment or be unexported"
   - "put a space between `//` and comment text"
   - "Function 'main' has too many statements"
+  - "missing return
   exclude-rules:
     - path: _test\.go
       linters:

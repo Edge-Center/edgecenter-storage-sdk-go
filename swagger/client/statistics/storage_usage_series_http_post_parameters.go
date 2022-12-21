@@ -52,10 +52,12 @@ func NewStorageUsageSeriesHTTPPostParamsWithHTTPClient(client *http.Client) *Sto
 	}
 }
 
-/* StorageUsageSeriesHTTPPostParams contains all the parameters to send to the API endpoint
-   for the storage usage series Http post operation.
+/*
+StorageUsageSeriesHTTPPostParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the storage usage series Http post operation.
+
+	Typically these are written to a http.Request.
 */
 type StorageUsageSeriesHTTPPostParams struct {
 

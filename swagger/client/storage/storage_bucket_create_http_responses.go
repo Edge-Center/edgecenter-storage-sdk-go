@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageBucketCreateHTTPReader is a Reader for the StorageBucketCreateHTTP structure.
@@ -45,14 +45,44 @@ func NewStorageBucketCreateHTTPNoContent() *StorageBucketCreateHTTPNoContent {
 	return &StorageBucketCreateHTTPNoContent{}
 }
 
-/* StorageBucketCreateHTTPNoContent describes a response with status code 204, with default header values.
+/*
+StorageBucketCreateHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type StorageBucketCreateHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this storage bucket create Http no content response has a 2xx status code
+func (o *StorageBucketCreateHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage bucket create Http no content response has a 3xx status code
+func (o *StorageBucketCreateHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket create Http no content response has a 4xx status code
+func (o *StorageBucketCreateHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage bucket create Http no content response has a 5xx status code
+func (o *StorageBucketCreateHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket create Http no content response a status code equal to that given
+func (o *StorageBucketCreateHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *StorageBucketCreateHTTPNoContent) Error() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketCreateHttpNoContent ", 204)
+}
+
+func (o *StorageBucketCreateHTTPNoContent) String() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketCreateHttpNoContent ", 204)
 }
 
@@ -66,7 +96,8 @@ func NewStorageBucketCreateHTTPBadRequest() *StorageBucketCreateHTTPBadRequest {
 	return &StorageBucketCreateHTTPBadRequest{}
 }
 
-/* StorageBucketCreateHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageBucketCreateHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -74,9 +105,39 @@ type StorageBucketCreateHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage bucket create Http bad request response has a 2xx status code
+func (o *StorageBucketCreateHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage bucket create Http bad request response has a 3xx status code
+func (o *StorageBucketCreateHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket create Http bad request response has a 4xx status code
+func (o *StorageBucketCreateHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage bucket create Http bad request response has a 5xx status code
+func (o *StorageBucketCreateHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket create Http bad request response a status code equal to that given
+func (o *StorageBucketCreateHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageBucketCreateHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketCreateHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageBucketCreateHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}][%d] storageBucketCreateHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageBucketCreateHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

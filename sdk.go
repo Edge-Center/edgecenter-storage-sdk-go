@@ -1,4 +1,4 @@
-package gstorage
+package ec_storage
 
 import (
 	"net/http"
@@ -13,20 +13,20 @@ import (
 type (
 	//SdkOpt is optional arg for setup apiCore
 	SdkOpt func(sdk *apiCore)
-	//SDK for g-core storage api
+	//SDK for EdgeCenter Storage API
 	SDK struct {
 		*sdkKey
 		*sdkStorage
 		*sdkBucket
 	}
 	apiCore struct {
-		client     *client.GCDNStorageAPI
+		client     *client.StorageAPI
 		authWriter runtime.ClientAuthInfoWriter
 		agent      string
 	}
 )
 
-//WithBearerAuth opt to setup SDK authWriter
+// WithBearerAuth opt to setup SDK authWriter
 func WithBearerAuth(tokenGetter func() string) SdkOpt {
 	return func(sdk *apiCore) {
 		if tokenGetter != nil && tokenGetter() != "" {
@@ -35,14 +35,14 @@ func WithBearerAuth(tokenGetter func() string) SdkOpt {
 	}
 }
 
-//WithUserAgent opt
+// WithUserAgent opt
 func WithUserAgent(agent string) SdkOpt {
 	return func(sdk *apiCore) {
 		sdk.agent = agent
 	}
 }
 
-//WithPermanentTokenAuth opt to setup SDK authWriter
+// WithPermanentTokenAuth opt to setup SDK authWriter
 func WithPermanentTokenAuth(tokenGetter func() string) SdkOpt {
 	return func(sdk *apiCore) {
 		if tokenGetter != nil && tokenGetter() != "" {
@@ -54,10 +54,10 @@ func WithPermanentTokenAuth(tokenGetter func() string) SdkOpt {
 	}
 }
 
-//NewSDK constructor of storage api swagger client wrapper
-//see UI of your data here https://api.edgecenter.ru/storage
-//apiHost = https://api.edgecenter.ru
-//apiBasePath = /storage
+// NewSDK constructor of storage api swagger client wrapper
+// see UI of your data here https://api.edgecenter.ru/storage
+// apiHost = https://api.edgecenter.ru
+// apiBasePath = /storage
 func NewSDK(apiHost, apiBasePath string, opts ...SdkOpt) *SDK {
 	schema := strings.Split(apiHost, "://")
 	if len(schema) > 1 {

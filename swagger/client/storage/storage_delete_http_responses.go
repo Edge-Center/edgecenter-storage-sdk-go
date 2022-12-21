@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageDeleteHTTPReader is a Reader for the StorageDeleteHTTP structure.
@@ -45,14 +45,44 @@ func NewStorageDeleteHTTPNoContent() *StorageDeleteHTTPNoContent {
 	return &StorageDeleteHTTPNoContent{}
 }
 
-/* StorageDeleteHTTPNoContent describes a response with status code 204, with default header values.
+/*
+StorageDeleteHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type StorageDeleteHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this storage delete Http no content response has a 2xx status code
+func (o *StorageDeleteHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage delete Http no content response has a 3xx status code
+func (o *StorageDeleteHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage delete Http no content response has a 4xx status code
+func (o *StorageDeleteHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage delete Http no content response has a 5xx status code
+func (o *StorageDeleteHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage delete Http no content response a status code equal to that given
+func (o *StorageDeleteHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *StorageDeleteHTTPNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}][%d] storageDeleteHttpNoContent ", 204)
+}
+
+func (o *StorageDeleteHTTPNoContent) String() string {
 	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}][%d] storageDeleteHttpNoContent ", 204)
 }
 
@@ -66,7 +96,8 @@ func NewStorageDeleteHTTPBadRequest() *StorageDeleteHTTPBadRequest {
 	return &StorageDeleteHTTPBadRequest{}
 }
 
-/* StorageDeleteHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageDeleteHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -74,9 +105,39 @@ type StorageDeleteHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage delete Http bad request response has a 2xx status code
+func (o *StorageDeleteHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage delete Http bad request response has a 3xx status code
+func (o *StorageDeleteHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage delete Http bad request response has a 4xx status code
+func (o *StorageDeleteHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage delete Http bad request response has a 5xx status code
+func (o *StorageDeleteHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage delete Http bad request response a status code equal to that given
+func (o *StorageDeleteHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageDeleteHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}][%d] storageDeleteHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageDeleteHTTPBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /provisioning/v1/storage/{id}][%d] storageDeleteHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageDeleteHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

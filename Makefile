@@ -17,7 +17,6 @@ clean:
 
 dep:
 	go mod tidy
-	go mod vendor
 
 gen:
 	./bin/swagger generate client -f https://api.edgecenter.ru/storage/docs/swagger.json -t swagger

@@ -60,6 +60,8 @@ type ClientService interface {
 
 	StorageListHTTPV2(params *StorageListHTTPV2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageListHTTPV2OK, error)
 
+	StorageRestoreHTTP(params *StorageRestoreHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageRestoreHTTPNoContent, error)
+
 	StorageUpdateCredentialsHTTP(params *StorageUpdateCredentialsHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageUpdateCredentialsHTTPOK, error)
 
 	StorageUpdateHTTP(params *StorageUpdateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageUpdateHTTPOK, error)
@@ -68,9 +70,9 @@ type ClientService interface {
 }
 
 /*
-  GetStorageBucketCORSHTTP gets s3 storage bucket cors
+GetStorageBucketCORSHTTP gets s3 storage bucket cors
 
-  Get s3 storage bucket cors
+Get s3 storage bucket cors
 */
 func (a *Client) GetStorageBucketCORSHTTP(params *GetStorageBucketCORSHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetStorageBucketCORSHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -109,9 +111,9 @@ func (a *Client) GetStorageBucketCORSHTTP(params *GetStorageBucketCORSHTTPParams
 }
 
 /*
-  KeyLinkHTTP links key to storage
+KeyLinkHTTP links key to storage
 
-  Link key to storage
+Link key to storage
 */
 func (a *Client) KeyLinkHTTP(params *KeyLinkHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*KeyLinkHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -150,9 +152,9 @@ func (a *Client) KeyLinkHTTP(params *KeyLinkHTTPParams, authInfo runtime.ClientA
 }
 
 /*
-  KeyUnlinkHTTP unlinks key from storage
+KeyUnlinkHTTP unlinks key from storage
 
-  Unlink key from storage
+Unlink key from storage
 */
 func (a *Client) KeyUnlinkHTTP(params *KeyUnlinkHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*KeyUnlinkHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -191,9 +193,9 @@ func (a *Client) KeyUnlinkHTTP(params *KeyUnlinkHTTPParams, authInfo runtime.Cli
 }
 
 /*
-  StorageBucketCORSCreateHTTP creates s3 storage bucket cors
+StorageBucketCORSCreateHTTP creates s3 storage bucket cors
 
-  Create s3 storage bucket cors
+Create s3 storage bucket cors
 */
 func (a *Client) StorageBucketCORSCreateHTTP(params *StorageBucketCORSCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageBucketCORSCreateHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -232,9 +234,9 @@ func (a *Client) StorageBucketCORSCreateHTTP(params *StorageBucketCORSCreateHTTP
 }
 
 /*
-  StorageBucketCreateHTTP creates s3 storage bucket
+StorageBucketCreateHTTP creates s3 storage bucket
 
-  Create s3 storage bucket
+Create s3 storage bucket
 */
 func (a *Client) StorageBucketCreateHTTP(params *StorageBucketCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageBucketCreateHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -273,9 +275,9 @@ func (a *Client) StorageBucketCreateHTTP(params *StorageBucketCreateHTTPParams, 
 }
 
 /*
-  StorageBucketLifecycleCreateHTTP creates s3 storage bucket lifecycle
+StorageBucketLifecycleCreateHTTP creates s3 storage bucket lifecycle
 
-  Create s3 storage bucket lifecycle
+Create s3 storage bucket lifecycle
 */
 func (a *Client) StorageBucketLifecycleCreateHTTP(params *StorageBucketLifecycleCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageBucketLifecycleCreateHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -314,9 +316,9 @@ func (a *Client) StorageBucketLifecycleCreateHTTP(params *StorageBucketLifecycle
 }
 
 /*
-  StorageBucketLifecycleDeleteHTTP deletes s3 storage bucket lifecycle
+StorageBucketLifecycleDeleteHTTP deletes s3 storage bucket lifecycle
 
-  Delete s3 storage bucket lifecycle
+Delete s3 storage bucket lifecycle
 */
 func (a *Client) StorageBucketLifecycleDeleteHTTP(params *StorageBucketLifecycleDeleteHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageBucketLifecycleDeleteHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -355,9 +357,9 @@ func (a *Client) StorageBucketLifecycleDeleteHTTP(params *StorageBucketLifecycle
 }
 
 /*
-  StorageBucketPolicyCreateHTTP creates s3 storage bucket policy
+StorageBucketPolicyCreateHTTP creates s3 storage bucket policy
 
-  Create s3 storage bucket policy
+Create s3 storage bucket policy
 */
 func (a *Client) StorageBucketPolicyCreateHTTP(params *StorageBucketPolicyCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageBucketPolicyCreateHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -396,9 +398,9 @@ func (a *Client) StorageBucketPolicyCreateHTTP(params *StorageBucketPolicyCreate
 }
 
 /*
-  StorageBucketRemoveHTTP removes s3 storage bucket
+StorageBucketRemoveHTTP removes s3 storage bucket
 
-  Remove s3 storage bucket
+Remove s3 storage bucket
 */
 func (a *Client) StorageBucketRemoveHTTP(params *StorageBucketRemoveHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageBucketRemoveHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -437,9 +439,9 @@ func (a *Client) StorageBucketRemoveHTTP(params *StorageBucketRemoveHTTPParams, 
 }
 
 /*
-  StorageCreateHTTP creates storage
+StorageCreateHTTP creates storage
 
-  Creates storage and returns it
+Creates storage and returns it
 */
 func (a *Client) StorageCreateHTTP(params *StorageCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageCreateHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -478,9 +480,9 @@ func (a *Client) StorageCreateHTTP(params *StorageCreateHTTPParams, authInfo run
 }
 
 /*
-  StorageDeleteHTTP deletes storage
+StorageDeleteHTTP deletes storage
 
-  Delete storage
+Delete storage
 */
 func (a *Client) StorageDeleteHTTP(params *StorageDeleteHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageDeleteHTTPNoContent, error) {
 	// TODO: Validate the params before sending
@@ -519,9 +521,9 @@ func (a *Client) StorageDeleteHTTP(params *StorageDeleteHTTPParams, authInfo run
 }
 
 /*
-  StorageGetHTTP gets storage
+StorageGetHTTP gets storage
 
-  Get storage
+Get storage
 */
 func (a *Client) StorageGetHTTP(params *StorageGetHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageGetHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -560,9 +562,9 @@ func (a *Client) StorageGetHTTP(params *StorageGetHTTPParams, authInfo runtime.C
 }
 
 /*
-  StorageListBucketsHTTP lists s3 storage buckets
+StorageListBucketsHTTP lists s3 storage buckets
 
-  List s3 storage buckets
+List s3 storage buckets
 */
 func (a *Client) StorageListBucketsHTTP(params *StorageListBucketsHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageListBucketsHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -601,9 +603,9 @@ func (a *Client) StorageListBucketsHTTP(params *StorageListBucketsHTTPParams, au
 }
 
 /*
-  StorageListHTTPV1 lists storages
+StorageListHTTPV1 lists storages
 
-  List storages
+List storages
 */
 func (a *Client) StorageListHTTPV1(params *StorageListHTTPV1Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageListHTTPV1OK, error) {
 	// TODO: Validate the params before sending
@@ -642,9 +644,9 @@ func (a *Client) StorageListHTTPV1(params *StorageListHTTPV1Params, authInfo run
 }
 
 /*
-  StorageListHTTPV2 lists storages v2
+StorageListHTTPV2 lists storages v2
 
-  List storages v2
+List storages v2
 */
 func (a *Client) StorageListHTTPV2(params *StorageListHTTPV2Params, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageListHTTPV2OK, error) {
 	// TODO: Validate the params before sending
@@ -683,9 +685,50 @@ func (a *Client) StorageListHTTPV2(params *StorageListHTTPV2Params, authInfo run
 }
 
 /*
-  StorageUpdateCredentialsHTTP resets storage credentials
+StorageRestoreHTTP restores deleted storage
 
-  Reset storage credentials
+Restore s3 storage which was deleted during last 2 weeks
+*/
+func (a *Client) StorageRestoreHTTP(params *StorageRestoreHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageRestoreHTTPNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewStorageRestoreHTTPParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "storageRestoreHttp",
+		Method:             "POST",
+		PathPattern:        "/provisioning/v1/storage/{id}/restore",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &StorageRestoreHTTPReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*StorageRestoreHTTPNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for storageRestoreHttp: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+StorageUpdateCredentialsHTTP resets storage credentials
+
+Reset storage credentials
 */
 func (a *Client) StorageUpdateCredentialsHTTP(params *StorageUpdateCredentialsHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageUpdateCredentialsHTTPOK, error) {
 	// TODO: Validate the params before sending
@@ -724,9 +767,9 @@ func (a *Client) StorageUpdateCredentialsHTTP(params *StorageUpdateCredentialsHT
 }
 
 /*
-  StorageUpdateHTTP updates storage
+StorageUpdateHTTP updates storage
 
-  Updates storage and returns it
+Updates storage and returns it
 */
 func (a *Client) StorageUpdateHTTP(params *StorageUpdateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageUpdateHTTPOK, error) {
 	// TODO: Validate the params before sending

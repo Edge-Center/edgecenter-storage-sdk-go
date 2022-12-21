@@ -23,11 +23,17 @@ type Storage struct {
 	// address
 	Address string `json:"address,omitempty"`
 
-	// client ID
+	// can restore
+	CanRestore bool `json:"can_restore,omitempty"`
+
+	// client id
 	ClientID int64 `json:"client_id,omitempty"`
 
 	// created at
 	CreatedAt string `json:"created_at,omitempty"`
+
+	// credentials
+	Credentials *Credentials `json:"credentials,omitempty"`
 
 	// custom config file
 	CustomConfigFile bool `json:"custom_config_file,omitempty"`
@@ -35,13 +41,13 @@ type Storage struct {
 	// deleted at
 	DeletedAt string `json:"deleted_at,omitempty"`
 
-	// disable Http
+	// disable http
 	DisableHTTP bool `json:"disable_http,omitempty"`
 
 	// expires
 	Expires string `json:"expires,omitempty"`
 
-	// Id
+	// id
 	ID int64 `json:"id,omitempty"`
 
 	// location
@@ -54,6 +60,9 @@ type Storage struct {
 	// provisioning status
 	ProvisioningStatus string `json:"provisioning_status,omitempty"`
 
+	// reseller id
+	ResellerID int64 `json:"reseller_id,omitempty"`
+
 	// rewrite rules
 	RewriteRules map[string]string `json:"rewrite_rules,omitempty"`
 
@@ -63,14 +72,15 @@ type Storage struct {
 	// type
 	// Enum: [sftp s3]
 	Type string `json:"type,omitempty"`
-
-	// credentials
-	Credentials *Credentials `json:"credentials,omitempty"`
 }
 
 // Validate validates this storage
 func (m *Storage) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateCredentials(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateLocation(formats); err != nil {
 		res = append(res, err)
@@ -80,13 +90,28 @@ func (m *Storage) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateCredentials(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Storage) validateCredentials(formats strfmt.Registry) error {
+	if swag.IsZero(m.Credentials) { // not required
+		return nil
+	}
+
+	if m.Credentials != nil {
+		if err := m.Credentials.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("credentials")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("credentials")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -181,25 +206,6 @@ func (m *Storage) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *Storage) validateCredentials(formats strfmt.Registry) error {
-	if swag.IsZero(m.Credentials) { // not required
-		return nil
-	}
-
-	if m.Credentials != nil {
-		if err := m.Credentials.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("credentials")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("credentials")
-			}
-			return err
-		}
 	}
 
 	return nil

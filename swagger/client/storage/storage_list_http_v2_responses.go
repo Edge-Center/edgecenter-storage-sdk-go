@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageListHTTPV2Reader is a Reader for the StorageListHTTPV2 structure.
@@ -45,7 +45,8 @@ func NewStorageListHTTPV2OK() *StorageListHTTPV2OK {
 	return &StorageListHTTPV2OK{}
 }
 
-/* StorageListHTTPV2OK describes a response with status code 200, with default header values.
+/*
+StorageListHTTPV2OK describes a response with status code 200, with default header values.
 
 StorageListEndpointRes
 */
@@ -53,9 +54,39 @@ type StorageListHTTPV2OK struct {
 	Payload *models.StorageListEndpointRes
 }
 
+// IsSuccess returns true when this storage list Http v2 o k response has a 2xx status code
+func (o *StorageListHTTPV2OK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage list Http v2 o k response has a 3xx status code
+func (o *StorageListHTTPV2OK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage list Http v2 o k response has a 4xx status code
+func (o *StorageListHTTPV2OK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage list Http v2 o k response has a 5xx status code
+func (o *StorageListHTTPV2OK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage list Http v2 o k response a status code equal to that given
+func (o *StorageListHTTPV2OK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StorageListHTTPV2OK) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v2/storage][%d] storageListHttpV2OK  %+v", 200, o.Payload)
 }
+
+func (o *StorageListHTTPV2OK) String() string {
+	return fmt.Sprintf("[GET /provisioning/v2/storage][%d] storageListHttpV2OK  %+v", 200, o.Payload)
+}
+
 func (o *StorageListHTTPV2OK) GetPayload() *models.StorageListEndpointRes {
 	return o.Payload
 }
@@ -77,7 +108,8 @@ func NewStorageListHTTPV2BadRequest() *StorageListHTTPV2BadRequest {
 	return &StorageListHTTPV2BadRequest{}
 }
 
-/* StorageListHTTPV2BadRequest describes a response with status code 400, with default header values.
+/*
+StorageListHTTPV2BadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -85,9 +117,39 @@ type StorageListHTTPV2BadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage list Http v2 bad request response has a 2xx status code
+func (o *StorageListHTTPV2BadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage list Http v2 bad request response has a 3xx status code
+func (o *StorageListHTTPV2BadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage list Http v2 bad request response has a 4xx status code
+func (o *StorageListHTTPV2BadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage list Http v2 bad request response has a 5xx status code
+func (o *StorageListHTTPV2BadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage list Http v2 bad request response a status code equal to that given
+func (o *StorageListHTTPV2BadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageListHTTPV2BadRequest) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v2/storage][%d] storageListHttpV2BadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageListHTTPV2BadRequest) String() string {
+	return fmt.Sprintf("[GET /provisioning/v2/storage][%d] storageListHttpV2BadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageListHTTPV2BadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

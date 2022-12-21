@@ -53,10 +53,12 @@ func NewStorageBucketCORSCreateHTTPParamsWithHTTPClient(client *http.Client) *St
 	}
 }
 
-/* StorageBucketCORSCreateHTTPParams contains all the parameters to send to the API endpoint
-   for the storage bucket c o r s create Http operation.
+/*
+StorageBucketCORSCreateHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the storage bucket c o r s create Http operation.
+
+	Typically these are written to a http.Request.
 */
 type StorageBucketCORSCreateHTTPParams struct {
 

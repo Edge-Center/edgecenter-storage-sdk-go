@@ -53,10 +53,12 @@ func NewStorageUpdateCredentialsHTTPParamsWithHTTPClient(client *http.Client) *S
 	}
 }
 
-/* StorageUpdateCredentialsHTTPParams contains all the parameters to send to the API endpoint
-   for the storage update credentials Http operation.
+/*
+StorageUpdateCredentialsHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the storage update credentials Http operation.
+
+	Typically these are written to a http.Request.
 */
 type StorageUpdateCredentialsHTTPParams struct {
 

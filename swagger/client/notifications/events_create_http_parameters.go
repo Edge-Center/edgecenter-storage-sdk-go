@@ -52,10 +52,12 @@ func NewEventsCreateHTTPParamsWithHTTPClient(client *http.Client) *EventsCreateH
 	}
 }
 
-/* EventsCreateHTTPParams contains all the parameters to send to the API endpoint
-   for the events create Http operation.
+/*
+EventsCreateHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the events create Http operation.
+
+	Typically these are written to a http.Request.
 */
 type EventsCreateHTTPParams struct {
 	timeout    time.Duration

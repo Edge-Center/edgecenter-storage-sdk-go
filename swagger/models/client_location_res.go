@@ -27,7 +27,7 @@ type ClientLocationRes struct {
 	// Enum: [deny allow]
 	AllowForNewStorage string `json:"allow_for_new_storage,omitempty"`
 
-	// Id
+	// id
 	ID int64 `json:"id,omitempty"`
 
 	// name

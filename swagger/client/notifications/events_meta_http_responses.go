@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // EventsMetaHTTPReader is a Reader for the EventsMetaHTTP structure.
@@ -57,24 +57,55 @@ func NewEventsMetaHTTPOK() *EventsMetaHTTPOK {
 	return &EventsMetaHTTPOK{}
 }
 
-/* EventsMetaHTTPOK describes a response with status code 200, with default header values.
+/*
+EventsMetaHTTPOK describes a response with status code 200, with default header values.
 
 EventsMetaResponse
 */
 type EventsMetaHTTPOK struct {
-	Payload *models.EventsMeta
+	Payload *models.EventsMetaResponse
+}
+
+// IsSuccess returns true when this events meta Http o k response has a 2xx status code
+func (o *EventsMetaHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this events meta Http o k response has a 3xx status code
+func (o *EventsMetaHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events meta Http o k response has a 4xx status code
+func (o *EventsMetaHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this events meta Http o k response has a 5xx status code
+func (o *EventsMetaHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events meta Http o k response a status code equal to that given
+func (o *EventsMetaHTTPOK) IsCode(code int) bool {
+	return code == 200
 }
 
 func (o *EventsMetaHTTPOK) Error() string {
 	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpOK  %+v", 200, o.Payload)
 }
-func (o *EventsMetaHTTPOK) GetPayload() *models.EventsMeta {
+
+func (o *EventsMetaHTTPOK) String() string {
+	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpOK  %+v", 200, o.Payload)
+}
+
+func (o *EventsMetaHTTPOK) GetPayload() *models.EventsMetaResponse {
 	return o.Payload
 }
 
 func (o *EventsMetaHTTPOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.EventsMeta)
+	o.Payload = new(models.EventsMetaResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -89,7 +120,8 @@ func NewEventsMetaHTTPBadRequest() *EventsMetaHTTPBadRequest {
 	return &EventsMetaHTTPBadRequest{}
 }
 
-/* EventsMetaHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+EventsMetaHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -97,9 +129,39 @@ type EventsMetaHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this events meta Http bad request response has a 2xx status code
+func (o *EventsMetaHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this events meta Http bad request response has a 3xx status code
+func (o *EventsMetaHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events meta Http bad request response has a 4xx status code
+func (o *EventsMetaHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this events meta Http bad request response has a 5xx status code
+func (o *EventsMetaHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events meta Http bad request response a status code equal to that given
+func (o *EventsMetaHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *EventsMetaHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *EventsMetaHTTPBadRequest) String() string {
+	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *EventsMetaHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -121,7 +183,8 @@ func NewEventsMetaHTTPUnauthorized() *EventsMetaHTTPUnauthorized {
 	return &EventsMetaHTTPUnauthorized{}
 }
 
-/* EventsMetaHTTPUnauthorized describes a response with status code 401, with default header values.
+/*
+EventsMetaHTTPUnauthorized describes a response with status code 401, with default header values.
 
 ErrResponse
 */
@@ -129,9 +192,39 @@ type EventsMetaHTTPUnauthorized struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this events meta Http unauthorized response has a 2xx status code
+func (o *EventsMetaHTTPUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this events meta Http unauthorized response has a 3xx status code
+func (o *EventsMetaHTTPUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events meta Http unauthorized response has a 4xx status code
+func (o *EventsMetaHTTPUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this events meta Http unauthorized response has a 5xx status code
+func (o *EventsMetaHTTPUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events meta Http unauthorized response a status code equal to that given
+func (o *EventsMetaHTTPUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *EventsMetaHTTPUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *EventsMetaHTTPUnauthorized) String() string {
+	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *EventsMetaHTTPUnauthorized) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -153,7 +246,8 @@ func NewEventsMetaHTTPConflict() *EventsMetaHTTPConflict {
 	return &EventsMetaHTTPConflict{}
 }
 
-/* EventsMetaHTTPConflict describes a response with status code 409, with default header values.
+/*
+EventsMetaHTTPConflict describes a response with status code 409, with default header values.
 
 ErrResponse
 */
@@ -161,9 +255,39 @@ type EventsMetaHTTPConflict struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this events meta Http conflict response has a 2xx status code
+func (o *EventsMetaHTTPConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this events meta Http conflict response has a 3xx status code
+func (o *EventsMetaHTTPConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this events meta Http conflict response has a 4xx status code
+func (o *EventsMetaHTTPConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this events meta Http conflict response has a 5xx status code
+func (o *EventsMetaHTTPConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this events meta Http conflict response a status code equal to that given
+func (o *EventsMetaHTTPConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *EventsMetaHTTPConflict) Error() string {
 	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpConflict  %+v", 409, o.Payload)
 }
+
+func (o *EventsMetaHTTPConflict) String() string {
+	return fmt.Sprintf("[GET /notifications/v1/events/configurator][%d] eventsMetaHttpConflict  %+v", 409, o.Payload)
+}
+
 func (o *EventsMetaHTTPConflict) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

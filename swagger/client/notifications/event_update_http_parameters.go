@@ -16,7 +16,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // NewEventUpdateHTTPParams creates a new EventUpdateHTTPParams object,
@@ -55,15 +55,17 @@ func NewEventUpdateHTTPParamsWithHTTPClient(client *http.Client) *EventUpdateHTT
 	}
 }
 
-/* EventUpdateHTTPParams contains all the parameters to send to the API endpoint
-   for the event update Http operation.
+/*
+EventUpdateHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the event update Http operation.
+
+	Typically these are written to a http.Request.
 */
 type EventUpdateHTTPParams struct {
 
 	// Body.
-	Body *models.Event
+	Body *models.EventResponse
 
 	/* ClientID.
 
@@ -127,13 +129,13 @@ func (o *EventUpdateHTTPParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the event update Http params
-func (o *EventUpdateHTTPParams) WithBody(body *models.Event) *EventUpdateHTTPParams {
+func (o *EventUpdateHTTPParams) WithBody(body *models.EventResponse) *EventUpdateHTTPParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the event update Http params
-func (o *EventUpdateHTTPParams) SetBody(body *models.Event) {
+func (o *EventUpdateHTTPParams) SetBody(body *models.EventResponse) {
 	o.Body = body
 }
 

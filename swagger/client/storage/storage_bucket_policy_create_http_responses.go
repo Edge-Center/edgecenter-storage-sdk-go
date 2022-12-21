@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // StorageBucketPolicyCreateHTTPReader is a Reader for the StorageBucketPolicyCreateHTTP structure.
@@ -45,14 +45,44 @@ func NewStorageBucketPolicyCreateHTTPNoContent() *StorageBucketPolicyCreateHTTPN
 	return &StorageBucketPolicyCreateHTTPNoContent{}
 }
 
-/* StorageBucketPolicyCreateHTTPNoContent describes a response with status code 204, with default header values.
+/*
+StorageBucketPolicyCreateHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type StorageBucketPolicyCreateHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this storage bucket policy create Http no content response has a 2xx status code
+func (o *StorageBucketPolicyCreateHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this storage bucket policy create Http no content response has a 3xx status code
+func (o *StorageBucketPolicyCreateHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket policy create Http no content response has a 4xx status code
+func (o *StorageBucketPolicyCreateHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this storage bucket policy create Http no content response has a 5xx status code
+func (o *StorageBucketPolicyCreateHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket policy create Http no content response a status code equal to that given
+func (o *StorageBucketPolicyCreateHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *StorageBucketPolicyCreateHTTPNoContent) Error() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/policy][%d] storageBucketPolicyCreateHttpNoContent ", 204)
+}
+
+func (o *StorageBucketPolicyCreateHTTPNoContent) String() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/policy][%d] storageBucketPolicyCreateHttpNoContent ", 204)
 }
 
@@ -66,7 +96,8 @@ func NewStorageBucketPolicyCreateHTTPBadRequest() *StorageBucketPolicyCreateHTTP
 	return &StorageBucketPolicyCreateHTTPBadRequest{}
 }
 
-/* StorageBucketPolicyCreateHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+StorageBucketPolicyCreateHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -74,9 +105,39 @@ type StorageBucketPolicyCreateHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this storage bucket policy create Http bad request response has a 2xx status code
+func (o *StorageBucketPolicyCreateHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this storage bucket policy create Http bad request response has a 3xx status code
+func (o *StorageBucketPolicyCreateHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this storage bucket policy create Http bad request response has a 4xx status code
+func (o *StorageBucketPolicyCreateHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this storage bucket policy create Http bad request response has a 5xx status code
+func (o *StorageBucketPolicyCreateHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this storage bucket policy create Http bad request response a status code equal to that given
+func (o *StorageBucketPolicyCreateHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *StorageBucketPolicyCreateHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/policy][%d] storageBucketPolicyCreateHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *StorageBucketPolicyCreateHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/s3/bucket/{name}/policy][%d] storageBucketPolicyCreateHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *StorageBucketPolicyCreateHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

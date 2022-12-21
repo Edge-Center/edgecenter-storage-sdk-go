@@ -1,4 +1,4 @@
-package gstorage
+package ec_storage
 
 import (
 	"context"
@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/key"
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/client/storage"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/key"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/storage"
 )
 
 func setupTest(t *testing.T) *SDK {

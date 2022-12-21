@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // KeyLinkHTTPReader is a Reader for the KeyLinkHTTP structure.
@@ -45,14 +45,44 @@ func NewKeyLinkHTTPNoContent() *KeyLinkHTTPNoContent {
 	return &KeyLinkHTTPNoContent{}
 }
 
-/* KeyLinkHTTPNoContent describes a response with status code 204, with default header values.
+/*
+KeyLinkHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type KeyLinkHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this key link Http no content response has a 2xx status code
+func (o *KeyLinkHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this key link Http no content response has a 3xx status code
+func (o *KeyLinkHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key link Http no content response has a 4xx status code
+func (o *KeyLinkHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this key link Http no content response has a 5xx status code
+func (o *KeyLinkHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key link Http no content response a status code equal to that given
+func (o *KeyLinkHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *KeyLinkHTTPNoContent) Error() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/link][%d] keyLinkHttpNoContent ", 204)
+}
+
+func (o *KeyLinkHTTPNoContent) String() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/link][%d] keyLinkHttpNoContent ", 204)
 }
 
@@ -66,7 +96,8 @@ func NewKeyLinkHTTPBadRequest() *KeyLinkHTTPBadRequest {
 	return &KeyLinkHTTPBadRequest{}
 }
 
-/* KeyLinkHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+KeyLinkHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -74,9 +105,39 @@ type KeyLinkHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this key link Http bad request response has a 2xx status code
+func (o *KeyLinkHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this key link Http bad request response has a 3xx status code
+func (o *KeyLinkHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key link Http bad request response has a 4xx status code
+func (o *KeyLinkHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this key link Http bad request response has a 5xx status code
+func (o *KeyLinkHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key link Http bad request response a status code equal to that given
+func (o *KeyLinkHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *KeyLinkHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/link][%d] keyLinkHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *KeyLinkHTTPBadRequest) String() string {
+	return fmt.Sprintf("[POST /provisioning/v1/storage/{id}/key/{key_id}/link][%d] keyLinkHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *KeyLinkHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

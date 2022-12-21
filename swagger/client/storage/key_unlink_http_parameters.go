@@ -53,10 +53,12 @@ func NewKeyUnlinkHTTPParamsWithHTTPClient(client *http.Client) *KeyUnlinkHTTPPar
 	}
 }
 
-/* KeyUnlinkHTTPParams contains all the parameters to send to the API endpoint
-   for the key unlink Http operation.
+/*
+KeyUnlinkHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the key unlink Http operation.
+
+	Typically these are written to a http.Request.
 */
 type KeyUnlinkHTTPParams struct {
 

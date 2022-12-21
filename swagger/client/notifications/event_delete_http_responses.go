@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // EventDeleteHTTPReader is a Reader for the EventDeleteHTTP structure.
@@ -57,14 +57,44 @@ func NewEventDeleteHTTPNoContent() *EventDeleteHTTPNoContent {
 	return &EventDeleteHTTPNoContent{}
 }
 
-/* EventDeleteHTTPNoContent describes a response with status code 204, with default header values.
+/*
+EventDeleteHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type EventDeleteHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this event delete Http no content response has a 2xx status code
+func (o *EventDeleteHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this event delete Http no content response has a 3xx status code
+func (o *EventDeleteHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this event delete Http no content response has a 4xx status code
+func (o *EventDeleteHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this event delete Http no content response has a 5xx status code
+func (o *EventDeleteHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this event delete Http no content response a status code equal to that given
+func (o *EventDeleteHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *EventDeleteHTTPNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpNoContent ", 204)
+}
+
+func (o *EventDeleteHTTPNoContent) String() string {
 	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpNoContent ", 204)
 }
 
@@ -78,7 +108,8 @@ func NewEventDeleteHTTPBadRequest() *EventDeleteHTTPBadRequest {
 	return &EventDeleteHTTPBadRequest{}
 }
 
-/* EventDeleteHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+EventDeleteHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -86,9 +117,39 @@ type EventDeleteHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this event delete Http bad request response has a 2xx status code
+func (o *EventDeleteHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this event delete Http bad request response has a 3xx status code
+func (o *EventDeleteHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this event delete Http bad request response has a 4xx status code
+func (o *EventDeleteHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this event delete Http bad request response has a 5xx status code
+func (o *EventDeleteHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this event delete Http bad request response a status code equal to that given
+func (o *EventDeleteHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *EventDeleteHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *EventDeleteHTTPBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *EventDeleteHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -110,7 +171,8 @@ func NewEventDeleteHTTPUnauthorized() *EventDeleteHTTPUnauthorized {
 	return &EventDeleteHTTPUnauthorized{}
 }
 
-/* EventDeleteHTTPUnauthorized describes a response with status code 401, with default header values.
+/*
+EventDeleteHTTPUnauthorized describes a response with status code 401, with default header values.
 
 ErrResponse
 */
@@ -118,9 +180,39 @@ type EventDeleteHTTPUnauthorized struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this event delete Http unauthorized response has a 2xx status code
+func (o *EventDeleteHTTPUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this event delete Http unauthorized response has a 3xx status code
+func (o *EventDeleteHTTPUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this event delete Http unauthorized response has a 4xx status code
+func (o *EventDeleteHTTPUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this event delete Http unauthorized response has a 5xx status code
+func (o *EventDeleteHTTPUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this event delete Http unauthorized response a status code equal to that given
+func (o *EventDeleteHTTPUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *EventDeleteHTTPUnauthorized) Error() string {
 	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *EventDeleteHTTPUnauthorized) String() string {
+	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *EventDeleteHTTPUnauthorized) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -142,7 +234,8 @@ func NewEventDeleteHTTPConflict() *EventDeleteHTTPConflict {
 	return &EventDeleteHTTPConflict{}
 }
 
-/* EventDeleteHTTPConflict describes a response with status code 409, with default header values.
+/*
+EventDeleteHTTPConflict describes a response with status code 409, with default header values.
 
 ErrResponse
 */
@@ -150,9 +243,39 @@ type EventDeleteHTTPConflict struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this event delete Http conflict response has a 2xx status code
+func (o *EventDeleteHTTPConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this event delete Http conflict response has a 3xx status code
+func (o *EventDeleteHTTPConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this event delete Http conflict response has a 4xx status code
+func (o *EventDeleteHTTPConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this event delete Http conflict response has a 5xx status code
+func (o *EventDeleteHTTPConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this event delete Http conflict response a status code equal to that given
+func (o *EventDeleteHTTPConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *EventDeleteHTTPConflict) Error() string {
 	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpConflict  %+v", 409, o.Payload)
 }
+
+func (o *EventDeleteHTTPConflict) String() string {
+	return fmt.Sprintf("[DELETE /notifications/v1/event][%d] eventDeleteHttpConflict  %+v", 409, o.Payload)
+}
+
 func (o *EventDeleteHTTPConflict) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

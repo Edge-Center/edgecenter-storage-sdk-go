@@ -52,10 +52,12 @@ func NewStorageCreateHTTPParamsWithHTTPClient(client *http.Client) *StorageCreat
 	}
 }
 
-/* StorageCreateHTTPParams contains all the parameters to send to the API endpoint
-   for the storage create Http operation.
+/*
+StorageCreateHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the storage create Http operation.
+
+	Typically these are written to a http.Request.
 */
 type StorageCreateHTTPParams struct {
 

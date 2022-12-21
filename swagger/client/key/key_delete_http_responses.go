@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // KeyDeleteHTTPReader is a Reader for the KeyDeleteHTTP structure.
@@ -45,14 +45,44 @@ func NewKeyDeleteHTTPNoContent() *KeyDeleteHTTPNoContent {
 	return &KeyDeleteHTTPNoContent{}
 }
 
-/* KeyDeleteHTTPNoContent describes a response with status code 204, with default header values.
+/*
+KeyDeleteHTTPNoContent describes a response with status code 204, with default header values.
 
 A SuccessResponse is a response that shows that operations was completed successfully
 */
 type KeyDeleteHTTPNoContent struct {
 }
 
+// IsSuccess returns true when this key delete Http no content response has a 2xx status code
+func (o *KeyDeleteHTTPNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this key delete Http no content response has a 3xx status code
+func (o *KeyDeleteHTTPNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key delete Http no content response has a 4xx status code
+func (o *KeyDeleteHTTPNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this key delete Http no content response has a 5xx status code
+func (o *KeyDeleteHTTPNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key delete Http no content response a status code equal to that given
+func (o *KeyDeleteHTTPNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *KeyDeleteHTTPNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /provisioning/v1/key/{id}][%d] keyDeleteHttpNoContent ", 204)
+}
+
+func (o *KeyDeleteHTTPNoContent) String() string {
 	return fmt.Sprintf("[DELETE /provisioning/v1/key/{id}][%d] keyDeleteHttpNoContent ", 204)
 }
 
@@ -66,7 +96,8 @@ func NewKeyDeleteHTTPBadRequest() *KeyDeleteHTTPBadRequest {
 	return &KeyDeleteHTTPBadRequest{}
 }
 
-/* KeyDeleteHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+KeyDeleteHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -74,9 +105,39 @@ type KeyDeleteHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this key delete Http bad request response has a 2xx status code
+func (o *KeyDeleteHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this key delete Http bad request response has a 3xx status code
+func (o *KeyDeleteHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key delete Http bad request response has a 4xx status code
+func (o *KeyDeleteHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this key delete Http bad request response has a 5xx status code
+func (o *KeyDeleteHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key delete Http bad request response a status code equal to that given
+func (o *KeyDeleteHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *KeyDeleteHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /provisioning/v1/key/{id}][%d] keyDeleteHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *KeyDeleteHTTPBadRequest) String() string {
+	return fmt.Sprintf("[DELETE /provisioning/v1/key/{id}][%d] keyDeleteHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *KeyDeleteHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }

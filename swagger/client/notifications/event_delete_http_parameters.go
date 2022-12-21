@@ -16,7 +16,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // NewEventDeleteHTTPParams creates a new EventDeleteHTTPParams object,
@@ -55,15 +55,17 @@ func NewEventDeleteHTTPParamsWithHTTPClient(client *http.Client) *EventDeleteHTT
 	}
 }
 
-/* EventDeleteHTTPParams contains all the parameters to send to the API endpoint
-   for the event delete Http operation.
+/*
+EventDeleteHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the event delete Http operation.
+
+	Typically these are written to a http.Request.
 */
 type EventDeleteHTTPParams struct {
 
 	// Body.
-	Body *models.Event
+	Body *models.EventResponse
 
 	/* ClientID.
 
@@ -127,13 +129,13 @@ func (o *EventDeleteHTTPParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the event delete Http params
-func (o *EventDeleteHTTPParams) WithBody(body *models.Event) *EventDeleteHTTPParams {
+func (o *EventDeleteHTTPParams) WithBody(body *models.EventResponse) *EventDeleteHTTPParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the event delete Http params
-func (o *EventDeleteHTTPParams) SetBody(body *models.Event) {
+func (o *EventDeleteHTTPParams) SetBody(body *models.EventResponse) {
 	o.Body = body
 }
 

@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // KeyCreateHTTPReader is a Reader for the KeyCreateHTTP structure.
@@ -53,7 +53,8 @@ func NewKeyCreateHTTPOK() *KeyCreateHTTPOK {
 	return &KeyCreateHTTPOK{}
 }
 
-/* KeyCreateHTTPOK describes a response with status code 200, with default header values.
+/*
+KeyCreateHTTPOK describes a response with status code 200, with default header values.
 
 Key
 */
@@ -61,9 +62,39 @@ type KeyCreateHTTPOK struct {
 	Payload *models.Key
 }
 
+// IsSuccess returns true when this key create Http o k response has a 2xx status code
+func (o *KeyCreateHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this key create Http o k response has a 3xx status code
+func (o *KeyCreateHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key create Http o k response has a 4xx status code
+func (o *KeyCreateHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this key create Http o k response has a 5xx status code
+func (o *KeyCreateHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key create Http o k response a status code equal to that given
+func (o *KeyCreateHTTPOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *KeyCreateHTTPOK) Error() string {
 	return fmt.Sprintf("[PUT /provisioning/v1/key][%d] keyCreateHttpOK  %+v", 200, o.Payload)
 }
+
+func (o *KeyCreateHTTPOK) String() string {
+	return fmt.Sprintf("[PUT /provisioning/v1/key][%d] keyCreateHttpOK  %+v", 200, o.Payload)
+}
+
 func (o *KeyCreateHTTPOK) GetPayload() *models.Key {
 	return o.Payload
 }
@@ -85,7 +116,8 @@ func NewKeyCreateHTTPBadRequest() *KeyCreateHTTPBadRequest {
 	return &KeyCreateHTTPBadRequest{}
 }
 
-/* KeyCreateHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+KeyCreateHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -93,9 +125,39 @@ type KeyCreateHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this key create Http bad request response has a 2xx status code
+func (o *KeyCreateHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this key create Http bad request response has a 3xx status code
+func (o *KeyCreateHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key create Http bad request response has a 4xx status code
+func (o *KeyCreateHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this key create Http bad request response has a 5xx status code
+func (o *KeyCreateHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key create Http bad request response a status code equal to that given
+func (o *KeyCreateHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *KeyCreateHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /provisioning/v1/key][%d] keyCreateHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *KeyCreateHTTPBadRequest) String() string {
+	return fmt.Sprintf("[PUT /provisioning/v1/key][%d] keyCreateHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *KeyCreateHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -117,7 +179,8 @@ func NewKeyCreateHTTPConflict() *KeyCreateHTTPConflict {
 	return &KeyCreateHTTPConflict{}
 }
 
-/* KeyCreateHTTPConflict describes a response with status code 409, with default header values.
+/*
+KeyCreateHTTPConflict describes a response with status code 409, with default header values.
 
 ErrResponse
 */
@@ -125,9 +188,39 @@ type KeyCreateHTTPConflict struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this key create Http conflict response has a 2xx status code
+func (o *KeyCreateHTTPConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this key create Http conflict response has a 3xx status code
+func (o *KeyCreateHTTPConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this key create Http conflict response has a 4xx status code
+func (o *KeyCreateHTTPConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this key create Http conflict response has a 5xx status code
+func (o *KeyCreateHTTPConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this key create Http conflict response a status code equal to that given
+func (o *KeyCreateHTTPConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *KeyCreateHTTPConflict) Error() string {
 	return fmt.Sprintf("[PUT /provisioning/v1/key][%d] keyCreateHttpConflict  %+v", 409, o.Payload)
 }
+
+func (o *KeyCreateHTTPConflict) String() string {
+	return fmt.Sprintf("[PUT /provisioning/v1/key][%d] keyCreateHttpConflict  %+v", 409, o.Payload)
+}
+
 func (o *KeyCreateHTTPConflict) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
@@ -144,7 +237,8 @@ func (o *KeyCreateHTTPConflict) readResponse(response runtime.ClientResponse, co
 	return nil
 }
 
-/*KeyCreateHTTPBody key create HTTP body
+/*
+KeyCreateHTTPBody key create HTTP body
 swagger:model KeyCreateHTTPBody
 */
 type KeyCreateHTTPBody struct {

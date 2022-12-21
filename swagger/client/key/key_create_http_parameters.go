@@ -52,10 +52,12 @@ func NewKeyCreateHTTPParamsWithHTTPClient(client *http.Client) *KeyCreateHTTPPar
 	}
 }
 
-/* KeyCreateHTTPParams contains all the parameters to send to the API endpoint
-   for the key create Http operation.
+/*
+KeyCreateHTTPParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the key create Http operation.
+
+	Typically these are written to a http.Request.
 */
 type KeyCreateHTTPParams struct {
 

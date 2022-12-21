@@ -36,9 +36,9 @@ type ClientService interface {
 }
 
 /*
-  LocationListHTTP lists locations
+LocationListHTTP lists locations
 
-  List locations
+List locations
 */
 func (a *Client) LocationListHTTP(params *LocationListHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*LocationListHTTPOK, error) {
 	// TODO: Validate the params before sending

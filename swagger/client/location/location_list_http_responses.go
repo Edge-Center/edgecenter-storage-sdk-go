@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/G-Core/gcore-storage-sdk-go/swagger/models"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/models"
 )
 
 // LocationListHTTPReader is a Reader for the LocationListHTTP structure.
@@ -45,7 +45,8 @@ func NewLocationListHTTPOK() *LocationListHTTPOK {
 	return &LocationListHTTPOK{}
 }
 
-/* LocationListHTTPOK describes a response with status code 200, with default header values.
+/*
+LocationListHTTPOK describes a response with status code 200, with default header values.
 
 clientLocationRes
 */
@@ -53,9 +54,39 @@ type LocationListHTTPOK struct {
 	Payload []*models.ClientLocationRes
 }
 
+// IsSuccess returns true when this location list Http o k response has a 2xx status code
+func (o *LocationListHTTPOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this location list Http o k response has a 3xx status code
+func (o *LocationListHTTPOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this location list Http o k response has a 4xx status code
+func (o *LocationListHTTPOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this location list Http o k response has a 5xx status code
+func (o *LocationListHTTPOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this location list Http o k response a status code equal to that given
+func (o *LocationListHTTPOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *LocationListHTTPOK) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v1/location][%d] locationListHttpOK  %+v", 200, o.Payload)
 }
+
+func (o *LocationListHTTPOK) String() string {
+	return fmt.Sprintf("[GET /provisioning/v1/location][%d] locationListHttpOK  %+v", 200, o.Payload)
+}
+
 func (o *LocationListHTTPOK) GetPayload() []*models.ClientLocationRes {
 	return o.Payload
 }
@@ -75,7 +106,8 @@ func NewLocationListHTTPBadRequest() *LocationListHTTPBadRequest {
 	return &LocationListHTTPBadRequest{}
 }
 
-/* LocationListHTTPBadRequest describes a response with status code 400, with default header values.
+/*
+LocationListHTTPBadRequest describes a response with status code 400, with default header values.
 
 ErrResponse
 */
@@ -83,9 +115,39 @@ type LocationListHTTPBadRequest struct {
 	Payload *models.ErrResponse
 }
 
+// IsSuccess returns true when this location list Http bad request response has a 2xx status code
+func (o *LocationListHTTPBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this location list Http bad request response has a 3xx status code
+func (o *LocationListHTTPBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this location list Http bad request response has a 4xx status code
+func (o *LocationListHTTPBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this location list Http bad request response has a 5xx status code
+func (o *LocationListHTTPBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this location list Http bad request response a status code equal to that given
+func (o *LocationListHTTPBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *LocationListHTTPBadRequest) Error() string {
 	return fmt.Sprintf("[GET /provisioning/v1/location][%d] locationListHttpBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *LocationListHTTPBadRequest) String() string {
+	return fmt.Sprintf("[GET /provisioning/v1/location][%d] locationListHttpBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *LocationListHTTPBadRequest) GetPayload() *models.ErrResponse {
 	return o.Payload
 }
