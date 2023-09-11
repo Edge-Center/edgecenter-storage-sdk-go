@@ -17,7 +17,7 @@ import (
 // swagger:model StorageGetBucketCorsEndpointRes
 type StorageGetBucketCorsEndpointRes struct {
 
-	// data
+	// CORS configuration details
 	Data string `json:"data,omitempty"`
 }
 

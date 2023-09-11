@@ -20,16 +20,22 @@ import (
 // swagger:model Storage
 type Storage struct {
 
-	// address
+	// Storage address
 	Address string `json:"address,omitempty"`
 
-	// can restore
+	// Indicates whether storage can be recovered after deletion.<br>
+	// Has one of the values:<ul>
+	// <li><b>true</b> — this storage can be recovered within 2 weeks of deletion;</li>
+	// <li><b>false</b> — this storage cannot be recovered anymore</li>
+	// </ul>
 	CanRestore bool `json:"can_restore,omitempty"`
 
-	// client id
+	// Client ID
+	// Example: 2345
 	ClientID int64 `json:"client_id,omitempty"`
 
-	// created at
+	// Storage creation date and time in ISO 8601, UTC format
+	// Example: 2022-07-21 12:00:04.103287
 	CreatedAt string `json:"created_at,omitempty"`
 
 	// credentials
@@ -38,29 +44,34 @@ type Storage struct {
 	// custom config file
 	CustomConfigFile bool `json:"custom_config_file,omitempty"`
 
-	// deleted at
+	// Storage deletion date and time in ISO 8601, UTC format
+	// Example: 2022-07-25 12:00:45.102487
 	DeletedAt string `json:"deleted_at,omitempty"`
 
-	// disable http
+	// Is disabled http access to storage without credentials
 	DisableHTTP bool `json:"disable_http,omitempty"`
 
 	// expires
 	Expires string `json:"expires,omitempty"`
 
-	// id
+	// Storage ID
+	// Example: 123
 	ID int64 `json:"id,omitempty"`
 
-	// location
-	// Enum: [s-ed1 s-ws1 ams sin fra mia]
+	// Storage region name
+	// Enum: [s-dt2]
 	Location string `json:"location,omitempty"`
 
-	// name
+	// Storage name
+	// Example: my-test-storage
 	Name string `json:"name,omitempty"`
 
-	// provisioning status
+	// Storage status
+	// Enum: [ok deleting updating]
 	ProvisioningStatus string `json:"provisioning_status,omitempty"`
 
-	// reseller id
+	// Reseller ID
+	// Example: 4765
 	ResellerID int64 `json:"reseller_id,omitempty"`
 
 	// rewrite rules
@@ -69,8 +80,8 @@ type Storage struct {
 	// server alias
 	ServerAlias string `json:"server_alias,omitempty"`
 
-	// type
-	// Enum: [sftp s3]
+	// Type of storage
+	// Enum: [s3]
 	Type string `json:"type,omitempty"`
 }
 
@@ -83,6 +94,10 @@ func (m *Storage) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLocation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProvisioningStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -119,7 +134,7 @@ var storageTypeLocationPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["s-ed1","s-ws1","ams","sin","fra","mia"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["s-dt2"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -129,23 +144,8 @@ func init() {
 
 const (
 
-	// StorageLocationSDashEd1 captures enum value "s-ed1"
-	StorageLocationSDashEd1 string = "s-ed1"
-
-	// StorageLocationSDashWs1 captures enum value "s-ws1"
-	StorageLocationSDashWs1 string = "s-ws1"
-
-	// StorageLocationAms captures enum value "ams"
-	StorageLocationAms string = "ams"
-
-	// StorageLocationSin captures enum value "sin"
-	StorageLocationSin string = "sin"
-
-	// StorageLocationFra captures enum value "fra"
-	StorageLocationFra string = "fra"
-
-	// StorageLocationMia captures enum value "mia"
-	StorageLocationMia string = "mia"
+	// StorageLocationSDashDt2 captures enum value "s-dt2"
+	StorageLocationSDashDt2 string = "s-dt2"
 )
 
 // prop value enum
@@ -169,11 +169,56 @@ func (m *Storage) validateLocation(formats strfmt.Registry) error {
 	return nil
 }
 
+var storageTypeProvisioningStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["ok","deleting","updating"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		storageTypeProvisioningStatusPropEnum = append(storageTypeProvisioningStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// StorageProvisioningStatusOk captures enum value "ok"
+	StorageProvisioningStatusOk string = "ok"
+
+	// StorageProvisioningStatusDeleting captures enum value "deleting"
+	StorageProvisioningStatusDeleting string = "deleting"
+
+	// StorageProvisioningStatusUpdating captures enum value "updating"
+	StorageProvisioningStatusUpdating string = "updating"
+)
+
+// prop value enum
+func (m *Storage) validateProvisioningStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, storageTypeProvisioningStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Storage) validateProvisioningStatus(formats strfmt.Registry) error {
+	if swag.IsZero(m.ProvisioningStatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateProvisioningStatusEnum("provisioning_status", "body", m.ProvisioningStatus); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 var storageTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["sftp","s3"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["s3"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -182,9 +227,6 @@ func init() {
 }
 
 const (
-
-	// StorageTypeSftp captures enum value "sftp"
-	StorageTypeSftp string = "sftp"
 
 	// StorageTypeS3 captures enum value "s3"
 	StorageTypeS3 string = "s3"
@@ -228,6 +270,11 @@ func (m *Storage) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 func (m *Storage) contextValidateCredentials(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Credentials != nil {
+
+		if swag.IsZero(m.Credentials) { // not required
+			return nil
+		}
+
 		if err := m.Credentials.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("credentials")

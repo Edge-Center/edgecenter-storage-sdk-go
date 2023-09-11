@@ -12,21 +12,21 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// LimitByBytes limit by bytes
+// LimitByBytes LimitByBytes input
 //
 // swagger:model LimitByBytes
 type LimitByBytes struct {
 
-	// bucket name
+	// Bucket name
 	BucketName string `json:"bucket_name,omitempty"`
 
-	// bytes
+	// Number of bytes. When you reach this number, you will receive an email notification
 	Bytes uint64 `json:"bytes,omitempty"`
 
-	// storage name
+	// Storage name
 	StorageName string `json:"storage_name,omitempty"`
 
-	// uuid
+	// Bucket ID
 	UUID string `json:"uuid,omitempty"`
 }
 

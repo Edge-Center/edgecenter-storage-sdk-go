@@ -10,11 +10,10 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/key"
-	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/location"
-	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/notifications"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/buckets"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/locations"
 	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/statistics"
-	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/storage"
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/storages"
 )
 
 // Default storage API HTTP client.
@@ -23,7 +22,7 @@ var Default = NewHTTPClient(nil)
 const (
 	// DefaultHost is the default Host
 	// found in Meta (info) section of spec file
-	DefaultHost string = "api.gcorelabs.com"
+	DefaultHost string = "api.edgecenter.ru"
 	// DefaultBasePath is the default BasePath
 	// found in Meta (info) section of spec file
 	DefaultBasePath string = "/storage/"
@@ -59,11 +58,10 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *StorageAPI
 
 	cli := new(StorageAPI)
 	cli.Transport = transport
-	cli.Key = key.New(transport, formats)
-	cli.Location = location.New(transport, formats)
-	cli.Notifications = notifications.New(transport, formats)
+	cli.Buckets = buckets.New(transport, formats)
+	cli.Locations = locations.New(transport, formats)
 	cli.Statistics = statistics.New(transport, formats)
-	cli.Storage = storage.New(transport, formats)
+	cli.Storages = storages.New(transport, formats)
 	return cli
 }
 
@@ -108,15 +106,13 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // StorageAPI is a client for storage API
 type StorageAPI struct {
-	Key key.ClientService
+	Buckets buckets.ClientService
 
-	Location location.ClientService
-
-	Notifications notifications.ClientService
+	Locations locations.ClientService
 
 	Statistics statistics.ClientService
 
-	Storage storage.ClientService
+	Storages storages.ClientService
 
 	Transport runtime.ClientTransport
 }
@@ -124,9 +120,8 @@ type StorageAPI struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *StorageAPI) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-	c.Key.SetTransport(transport)
-	c.Location.SetTransport(transport)
-	c.Notifications.SetTransport(transport)
+	c.Buckets.SetTransport(transport)
+	c.Locations.SetTransport(transport)
 	c.Statistics.SetTransport(transport)
-	c.Storage.SetTransport(transport)
+	c.Storages.SetTransport(transport)
 }

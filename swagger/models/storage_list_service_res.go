@@ -85,6 +85,11 @@ func (m *StorageListServiceRes) contextValidateStorages(ctx context.Context, for
 	for i := 0; i < len(m.Storages); i++ {
 
 		if m.Storages[i] != nil {
+
+			if swag.IsZero(m.Storages[i]) { // not required
+				return nil
+			}
+
 			if err := m.Storages[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("storages" + "." + strconv.Itoa(i))

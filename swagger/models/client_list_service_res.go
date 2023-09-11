@@ -85,6 +85,11 @@ func (m *ClientListServiceRes) contextValidateClients(ctx context.Context, forma
 	for i := 0; i < len(m.Clients); i++ {
 
 		if m.Clients[i] != nil {
+
+			if swag.IsZero(m.Clients[i]) { // not required
+				return nil
+			}
+
 			if err := m.Clients[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("clients" + "." + strconv.Itoa(i))

@@ -18,7 +18,7 @@ import (
 type DataMeta struct {
 
 	// to meta
-	ToMeta map[string]interface{} `json:"ToMeta,omitempty"`
+	ToMeta interface{} `json:"ToMeta,omitempty"`
 }
 
 // Validate validates this data meta

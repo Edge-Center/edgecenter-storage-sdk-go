@@ -12,21 +12,21 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// LimitByCount limit by count
+// LimitByCount LimitByCount input
 //
 // swagger:model LimitByCount
 type LimitByCount struct {
 
-	// bucket name
+	// Bucket name
 	BucketName string `json:"bucket_name,omitempty"`
 
-	// count
+	// Limit count value. When you reach this limit, you will receive an email notification
 	Count uint64 `json:"count,omitempty"`
 
-	// storage name
+	// Storage name
 	StorageName string `json:"storage_name,omitempty"`
 
-	// uuid
+	// Bucket ID
 	UUID string `json:"uuid,omitempty"`
 }
 

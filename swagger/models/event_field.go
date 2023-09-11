@@ -17,11 +17,11 @@ import (
 // swagger:model EventField
 type EventField struct {
 
-	// Name of field in root event structure
+	// Field name in the event structure
 	// Example: storage_name
 	Name string `json:"name,omitempty"`
 
-	// Type of field
+	// Required data type
 	// Example: number, bool, text
 	Type string `json:"type,omitempty"`
 }

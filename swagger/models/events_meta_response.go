@@ -22,7 +22,7 @@ type EventsMetaResponse struct {
 	// example
 	Example *EventsResponse `json:"example,omitempty"`
 
-	// Structure of request body
+	// Event structure
 	Structure []*EventDescription `json:"structure"`
 }
 
@@ -110,6 +110,11 @@ func (m *EventsMetaResponse) ContextValidate(ctx context.Context, formats strfmt
 func (m *EventsMetaResponse) contextValidateExample(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Example != nil {
+
+		if swag.IsZero(m.Example) { // not required
+			return nil
+		}
+
 		if err := m.Example.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("example")
@@ -128,6 +133,11 @@ func (m *EventsMetaResponse) contextValidateStructure(ctx context.Context, forma
 	for i := 0; i < len(m.Structure); i++ {
 
 		if m.Structure[i] != nil {
+
+			if swag.IsZero(m.Structure[i]) { // not required
+				return nil
+			}
+
 			if err := m.Structure[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("structure" + "." + strconv.Itoa(i))

@@ -14,21 +14,21 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// EventsResponse Events for storage notification
+// EventsResponse Examples of configured events
 //
 // swagger:model EventsResponse
 type EventsResponse struct {
 
-	// reaching files quantity
+	// Event for reaching a certain number of objects in the storage
 	ReachingFilesQuantity []*LimitByCount `json:"reaching_files_quantity"`
 
-	// reaching used requests
+	// Event for reaching a certain number of requests to the storage
 	ReachingUsedRequests []*LimitByCount `json:"reaching_used_requests"`
 
-	// reaching used space
+	// Event for reaching a certain amount of space in the storage
 	ReachingUsedSpace []*LimitByBytes `json:"reaching_used_space"`
 
-	// reaching used traffic
+	// Event for reaching a certain amount of traffic in the storage
 	ReachingUsedTraffic []*LimitByBytes `json:"reaching_used_traffic"`
 }
 
@@ -193,6 +193,11 @@ func (m *EventsResponse) contextValidateReachingFilesQuantity(ctx context.Contex
 	for i := 0; i < len(m.ReachingFilesQuantity); i++ {
 
 		if m.ReachingFilesQuantity[i] != nil {
+
+			if swag.IsZero(m.ReachingFilesQuantity[i]) { // not required
+				return nil
+			}
+
 			if err := m.ReachingFilesQuantity[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("reaching_files_quantity" + "." + strconv.Itoa(i))
@@ -213,6 +218,11 @@ func (m *EventsResponse) contextValidateReachingUsedRequests(ctx context.Context
 	for i := 0; i < len(m.ReachingUsedRequests); i++ {
 
 		if m.ReachingUsedRequests[i] != nil {
+
+			if swag.IsZero(m.ReachingUsedRequests[i]) { // not required
+				return nil
+			}
+
 			if err := m.ReachingUsedRequests[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("reaching_used_requests" + "." + strconv.Itoa(i))
@@ -233,6 +243,11 @@ func (m *EventsResponse) contextValidateReachingUsedSpace(ctx context.Context, f
 	for i := 0; i < len(m.ReachingUsedSpace); i++ {
 
 		if m.ReachingUsedSpace[i] != nil {
+
+			if swag.IsZero(m.ReachingUsedSpace[i]) { // not required
+				return nil
+			}
+
 			if err := m.ReachingUsedSpace[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("reaching_used_space" + "." + strconv.Itoa(i))
@@ -253,6 +268,11 @@ func (m *EventsResponse) contextValidateReachingUsedTraffic(ctx context.Context,
 	for i := 0; i < len(m.ReachingUsedTraffic); i++ {
 
 		if m.ReachingUsedTraffic[i] != nil {
+
+			if swag.IsZero(m.ReachingUsedTraffic[i]) { // not required
+				return nil
+			}
+
 			if err := m.ReachingUsedTraffic[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("reaching_used_traffic" + "." + strconv.Itoa(i))
