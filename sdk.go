@@ -11,11 +11,11 @@ import (
 )
 
 type (
-	//SdkOpt is optional arg for setup apiCore
+	// SdkOpt is optional arg for setup apiCore
 	SdkOpt func(sdk *apiCore)
-	//SDK for EdgeCenter Storage API
+	// SDK for EdgeCenter Storage API
 	SDK struct {
-		*sdkKey
+		*sdkLocation
 		*sdkStorage
 		*sdkBucket
 	}
@@ -80,9 +80,9 @@ func NewSDK(apiHost, apiBasePath string, opts ...SdkOpt) *SDK {
 	core.client = client.New(transport, strfmt.Default)
 
 	return &SDK{
-		sdkKey:     &sdkKey{apiCore: core},
-		sdkStorage: &sdkStorage{apiCore: core},
-		sdkBucket:  &sdkBucket{apiCore: core},
+		sdkLocation: &sdkLocation{apiCore: core},
+		sdkStorage:  &sdkStorage{apiCore: core},
+		sdkBucket:   &sdkBucket{apiCore: core},
 	}
 }
 

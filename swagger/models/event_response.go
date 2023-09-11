@@ -19,10 +19,10 @@ import (
 // swagger:model EventResponse
 type EventResponse struct {
 
-	// bucket name
+	// Bucket name
 	BucketName string `json:"bucket_name,omitempty"`
 
-	// Bytes as limit
+	// Number of bytes. When you reach this number, you will receive an email notification.
 	// Example: 500
 	Bytes uint64 `json:"bytes,omitempty"`
 
@@ -35,10 +35,10 @@ type EventResponse struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// storage name
+	// Storage name
 	StorageName string `json:"storage_name,omitempty"`
 
-	// uuid
+	// Bucket ID
 	UUID string `json:"uuid,omitempty"`
 }
 

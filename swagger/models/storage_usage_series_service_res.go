@@ -19,7 +19,7 @@ import (
 // swagger:model StorageUsageSeriesServiceRes
 type StorageUsageSeriesServiceRes struct {
 
-	// a Clients grouped data
+	// Statistics grouped by a specific account
 	Clients map[string]ClientStats `json:"clients,omitempty"`
 }
 

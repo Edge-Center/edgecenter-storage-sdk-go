@@ -36,9 +36,9 @@ type ClientService interface {
 }
 
 /*
-StorageUsageSeriesHTTPPost storages usage series
+StorageUsageSeriesHTTPPost gets storage usage statistics
 
-Shows storage usage data in series format filtered by clients, storages and interval
+Returns up to 1 year of storage statistics in a series format filtered by location, storage, and bucket.
 */
 func (a *Client) StorageUsageSeriesHTTPPost(params *StorageUsageSeriesHTTPPostParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageUsageSeriesHTTPPostOK, error) {
 	// TODO: Validate the params before sending

@@ -38,7 +38,7 @@ func (o *StorageUsageSeriesHTTPPostReader) ReadResponse(response runtime.ClientR
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+		return nil, runtime.NewAPIError("[POST /stats/v1/storage/usage/series] storageUsageSeriesHttpPost", response, response.Code())
 	}
 }
 
@@ -79,6 +79,11 @@ func (o *StorageUsageSeriesHTTPPostOK) IsServerError() bool {
 // IsCode returns true when this storage usage series Http post o k response a status code equal to that given
 func (o *StorageUsageSeriesHTTPPostOK) IsCode(code int) bool {
 	return code == 200
+}
+
+// Code gets the status code for the storage usage series Http post o k response
+func (o *StorageUsageSeriesHTTPPostOK) Code() int {
+	return 200
 }
 
 func (o *StorageUsageSeriesHTTPPostOK) Error() string {
@@ -144,6 +149,11 @@ func (o *StorageUsageSeriesHTTPPostBadRequest) IsCode(code int) bool {
 	return code == 400
 }
 
+// Code gets the status code for the storage usage series Http post bad request response
+func (o *StorageUsageSeriesHTTPPostBadRequest) Code() int {
+	return 400
+}
+
 func (o *StorageUsageSeriesHTTPPostBadRequest) Error() string {
 	return fmt.Sprintf("[POST /stats/v1/storage/usage/series][%d] storageUsageSeriesHttpPostBadRequest  %+v", 400, o.Payload)
 }
@@ -174,32 +184,32 @@ swagger:model StorageUsageSeriesHTTPPostBody
 */
 type StorageUsageSeriesHTTPPostBody struct {
 
-	// a From date filter
-	// Example: 2006-01-02
+	// Specify the starting point of the required period (YYYY-MM-DD format)
+	// Example: 2023-01-15
 	From string `json:"from,omitempty"`
 
-	// a Granularity is period of time for grouping data
-	// Valid time units are "s", "m", "h".
-	// Example: 12h
+	// Set the time intervals for grouping the data.
+	// Valid time units are "s", "m", "h"
+	// Example: 6h
 	Granularity string `json:"granularity,omitempty"`
 
-	// a Locations list of filter
-	// Example: ["fra","mia","sin","ams","s-ed1","s-darz1","s-dt2","lux","drf"]
+	// Specify the storage locations for grouping the data
+	// Example: ["s-dt2"]
 	Locations []string `json:"locations"`
 
-	// a Source is deprecated parameter
-	Source uint8 `json:"source,omitempty"`
-
-	// a Storages list of filter
-	// Example: ["123-myStorage"]
+	// Specify the storage names for grouping the data
+	// Example: ["4554-test-storage"]
 	Storages []string `json:"storages"`
 
-	// a To date filter
-	// Example: 2006-01-02
+	// Specify the end of the required period (YYYY-MM-DD format)
+	// Example: 2023-04-03
 	To string `json:"to,omitempty"`
 
-	// a TsString is configurator of response time format
-	// switch response from unix time format to RFC3339 (2006-01-02T15:04:05Z07:00)
+	// Decide whether to convert the response time format from the UNIX timestamp (1673809200) to RFC3339 (2023-01-15T19:00:00Z).<br>
+	// Choose one of the values:<ul>
+	// <li><b>true</b> — to convert the time to RFC3339 format;</li>
+	// <li><b>false</b> — to leave the time in the UNIX timestamp format</li>
+	// </ul>
 	TsString bool `json:"ts_string,omitempty"`
 }
 

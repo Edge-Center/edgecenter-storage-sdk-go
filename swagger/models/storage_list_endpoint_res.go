@@ -19,7 +19,7 @@ import (
 // swagger:model StorageListEndpointRes
 type StorageListEndpointRes struct {
 
-	// data
+	// Information about the storages in your account
 	Data []*Storage `json:"data"`
 
 	// meta
@@ -112,6 +112,11 @@ func (m *StorageListEndpointRes) contextValidateData(ctx context.Context, format
 	for i := 0; i < len(m.Data); i++ {
 
 		if m.Data[i] != nil {
+
+			if swag.IsZero(m.Data[i]) { // not required
+				return nil
+			}
+
 			if err := m.Data[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("data" + "." + strconv.Itoa(i))
@@ -130,6 +135,11 @@ func (m *StorageListEndpointRes) contextValidateData(ctx context.Context, format
 func (m *StorageListEndpointRes) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
+
+		if swag.IsZero(m.Meta) { // not required
+			return nil
+		}
+
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")

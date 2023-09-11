@@ -12,18 +12,18 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// BucketAndStorageName bucket and storage name
+// BucketAndStorageName BucketAndStorageName input
 //
 // swagger:model BucketAndStorageName
 type BucketAndStorageName struct {
 
-	// bucket name
+	// Bucket name
 	BucketName string `json:"bucket_name,omitempty"`
 
-	// storage name
+	// Storage name
 	StorageName string `json:"storage_name,omitempty"`
 
-	// uuid
+	// Bucket ID
 	UUID string `json:"uuid,omitempty"`
 }
 

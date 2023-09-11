@@ -17,84 +17,137 @@ import (
 // swagger:model StorageStats
 type StorageStats struct {
 
-	// a BucketsSeries is max bucket files count for grouped period {name:[[timestamp, count]]}
-	// Example: {"bucketA":[[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]}
+	// Statistics grouped by buckets
+	// Example: {"bucketA":[[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]}
 	BucketsSeries map[string][][]interface{} `json:"buckets_series,omitempty"`
 
-	// a FileQuantitySumMax is max sum of files quantity for grouped period
+	// Maximum number of files within the specified time period
 	FileQuantitySumMax uint64 `json:"file_quantity_sum_max,omitempty"`
 
-	// a Name of storage
+	// Storage name
 	Name string `json:"name,omitempty"`
 
-	// a RequestsInSeries is sum of incoming requests for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total number of incoming requests within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — number of requests</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	RequestsInSeries [][]interface{} `json:"requests_in_series"`
 
-	// a RequestsInSum is sum of incoming  requests for grouped period
+	// Total number of incoming requests within the specified time period
 	RequestsInSum uint64 `json:"requests_in_sum,omitempty"`
 
-	// a RequestsOutWoEdgesSeries is sum of out requests (only edges) for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total number of requests from the edges within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — number of requests</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	RequestsOutEdgesSeries [][]interface{} `json:"requests_out_edges_series"`
 
-	// a RequestsOutEdgesSum is sum of out edges requests for grouped period
+	// Total number of requests from the edges within the specified time period
 	RequestsOutEdgesSum uint64 `json:"requests_out_edges_sum,omitempty"`
 
-	// a RequestsOutWoEdgesSeries is sum of out requests (without edges) for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total amount of outсoming requests without requests from the edges within the specified time period, displayed
+	// in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — amount of requests</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	RequestsOutWoEdgesSeries [][]interface{} `json:"requests_out_wo_edges_series"`
 
-	// a RequestsOutWoEdgesSum is sum of out no edges requests for grouped period
+	// Total number of outсoming requests without requests from the edges within the specified time period
 	RequestsOutWoEdgesSum uint64 `json:"requests_out_wo_edges_sum,omitempty"`
 
-	// a RequestsSeries is sum of out requests for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total number of requests within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — number of requests</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	RequestsSeries [][]interface{} `json:"requests_series"`
 
-	// a RequestsSum is sum of all requests for grouped period
+	// Total number of requests within the specified time period
 	RequestsSum uint64 `json:"requests_sum,omitempty"`
 
-	// a SizeMaxSeries is max of files size for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total number of outсoming requests without requests from the edges within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — number of requests</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
+	RequestsWoEdgesSeries [][]interface{} `json:"requests_wo_edges_series"`
+
+	// RequestsWoEdgesSum is sum of requests without edges out requests for grouped period
+	RequestsWoEdgesSum uint64 `json:"requests_wo_edges_sum,omitempty"`
+
+	// Maximum amount of all file sizes within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — maximum amount of all file sizes</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	SizeMaxSeries [][]interface{} `json:"size_max_series"`
 
-	// a SizeMean is mean of files size for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Mean amount of all file sizes within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — mean amount of all file sizes</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	SizeMeanSeries [][]interface{} `json:"size_mean_series"`
 
-	// a SizeSumMax is max sum of all files sizes for grouped period
+	// Maximum amount of all file sizes within the specified time period
 	SizeSumMax uint64 `json:"size_sum_max,omitempty"`
 
-	// a SizeSumMean is mean sum of all files sizes for grouped period
+	// Mean amount of all file sizes within the specified time period
 	SizeSumMean uint64 `json:"size_sum_mean,omitempty"`
 
-	// a TrafficInSeries is sum of incoming traffic bytes for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total amount of incoming traffic within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — amount of traffic</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	TrafficInSeries [][]interface{} `json:"traffic_in_series"`
 
-	// a TrafficInSum is sum of incoming  traffic for grouped period
+	// Total amount of incoming traffic within the specified time period
 	TrafficInSum uint64 `json:"traffic_in_sum,omitempty"`
 
-	// a TrafficOutWoEdgesSeries is sum of out traffic bytes (only edges) for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total amount of outсoming traffic from the edges within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — amount of traffic</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	TrafficOutEdgesSeries [][]interface{} `json:"traffic_out_edges_series"`
 
-	// a TrafficOutEdgesSum is sum of out edges traffic for grouped period
+	// Total number of traffic from the edges within the specified time period
 	TrafficOutEdgesSum uint64 `json:"traffic_out_edges_sum,omitempty"`
 
-	// a TrafficOutWoEdgesSeries is sum of out traffic bytes (without edges) for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total amount of outсoming traffic without traffic from the edges within the specified time period, displayed
+	// in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — amount of traffic</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	TrafficOutWoEdgesSeries [][]interface{} `json:"traffic_out_wo_edges_series"`
 
-	// a TrafficOutWoEdgesSum is sum of out no edges traffic for grouped period
+	// Total number of outсoming traffic without requests from the edges within the specified time period
 	TrafficOutWoEdgesSum uint64 `json:"traffic_out_wo_edges_sum,omitempty"`
 
-	// a TrafficSeries is sum of traffic bytes for grouped period [[timestamp, count]]
-	// Example: [[1632748614,1],[1632748615,2],[1632748616,2],[1632748617,1]]
+	// Total amount of traffic within the specified time period, displayed in series format.<br>
+	// Shows 2 values:<ul>
+	// <li><b>timestamp</b> — UNIX timestamp of data grouping;</li>
+	// <li><b>count</b> — amount of traffic</li>
+	// </ul>
+	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
 	TrafficSeries [][]interface{} `json:"traffic_series"`
 
-	// a TrafficSum is sum of all traffic for grouped period
+	// Total amount of traffic within the specified time period
 	TrafficSum uint64 `json:"traffic_sum,omitempty"`
 }
 

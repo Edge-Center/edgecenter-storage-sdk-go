@@ -17,10 +17,13 @@ import (
 // swagger:model BucketDto
 type BucketDto struct {
 
-	// lifecycle
+	// Number of days after which the objects in the bucket are considered expired. <br>
+	// Note: <ul>
+	// <li>No field is displayed if the lifecycle is not set</li>
+	// </ul>
 	Lifecycle int64 `json:"lifecycle,omitempty"`
 
-	// name
+	// Bucket name
 	Name string `json:"name,omitempty"`
 }
 

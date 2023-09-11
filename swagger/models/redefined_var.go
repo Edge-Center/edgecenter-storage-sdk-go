@@ -18,7 +18,7 @@ import (
 type RedefinedVar struct {
 
 	// for
-	For map[string]interface{} `json:"for,omitempty"`
+	For interface{} `json:"for,omitempty"`
 
 	// id
 	ID int64 `json:"id,omitempty"`

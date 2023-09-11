@@ -20,22 +20,27 @@ import (
 // swagger:model clientLocationRes
 type ClientLocationRes struct {
 
-	// address
+	// Storage address
 	Address string `json:"address,omitempty"`
 
-	// allow for new storage
+	// Shows if you are allowed to create more storages.
+	// Has one of the values: <br><ul>
+	// <li><b>allow</b> — you can create more storages;</li>
+	// <li><b>deny</b> — you cannot create any more storages</li>
+	// </ul>
 	// Enum: [deny allow]
 	AllowForNewStorage string `json:"allow_for_new_storage,omitempty"`
 
-	// id
+	// Storage location ID
 	ID int64 `json:"id,omitempty"`
 
-	// name
-	// Example: s-ed1 / s-ws1 / ams / sin / fra / mia / etc.
-	// Enum: [s-ed1 s-ws1 ams sin fra mia]
+	// Storage region name
+	// Example: s-dt2
+	// Enum: [s-dt2]
 	Name string `json:"name,omitempty"`
 
-	// type
+	// Storage type
+	// Enum: [s3]
 	Type string `json:"type,omitempty"`
 }
 
@@ -48,6 +53,10 @@ func (m *ClientLocationRes) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -103,7 +112,7 @@ var clientLocationResTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["s-ed1","s-ws1","ams","sin","fra","mia"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["s-dt2"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -113,23 +122,8 @@ func init() {
 
 const (
 
-	// ClientLocationResNameSDashEd1 captures enum value "s-ed1"
-	ClientLocationResNameSDashEd1 string = "s-ed1"
-
-	// ClientLocationResNameSDashWs1 captures enum value "s-ws1"
-	ClientLocationResNameSDashWs1 string = "s-ws1"
-
-	// ClientLocationResNameAms captures enum value "ams"
-	ClientLocationResNameAms string = "ams"
-
-	// ClientLocationResNameSin captures enum value "sin"
-	ClientLocationResNameSin string = "sin"
-
-	// ClientLocationResNameFra captures enum value "fra"
-	ClientLocationResNameFra string = "fra"
-
-	// ClientLocationResNameMia captures enum value "mia"
-	ClientLocationResNameMia string = "mia"
+	// ClientLocationResNameSDashDt2 captures enum value "s-dt2"
+	ClientLocationResNameSDashDt2 string = "s-dt2"
 )
 
 // prop value enum
@@ -147,6 +141,45 @@ func (m *ClientLocationRes) validateName(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateNameEnum("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var clientLocationResTypeTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["s3"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		clientLocationResTypeTypePropEnum = append(clientLocationResTypeTypePropEnum, v)
+	}
+}
+
+const (
+
+	// ClientLocationResTypeS3 captures enum value "s3"
+	ClientLocationResTypeS3 string = "s3"
+)
+
+// prop value enum
+func (m *ClientLocationRes) validateTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, clientLocationResTypeTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ClientLocationRes) validateType(formats strfmt.Registry) error {
+	if swag.IsZero(m.Type) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
 	}
 

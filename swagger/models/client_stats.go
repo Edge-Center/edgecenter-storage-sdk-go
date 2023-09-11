@@ -19,43 +19,46 @@ import (
 // swagger:model ClientStats
 type ClientStats struct {
 
-	// a FileQuantitySumMax is max sum of files quantity for grouped period
+	// Maximum number of files within the specified time period
 	FileQuantitySumMax uint64 `json:"file_quantity_sum_max,omitempty"`
 
-	// an ID of client
+	// Your account ID
 	ID int64 `json:"id,omitempty"`
 
-	// a Locations grouped data
+	// Statistics grouped by storage locations
 	Locations map[string]LocationStats `json:"locations,omitempty"`
 
-	// a RequestsInSum is sum of incoming  requests for grouped period
+	// Total number of incoming requests within the specified time period
 	RequestsInSum uint64 `json:"requests_in_sum,omitempty"`
 
-	// a RequestsOutEdgesSum is sum of out edges requests for grouped period
+	// Total number of requests from the edges within the specified time period
 	RequestsOutEdgesSum uint64 `json:"requests_out_edges_sum,omitempty"`
 
-	// a RequestsOutWoEdgesSum is sum of out no edges requests for grouped period
+	// Total number of outсoming requests without requests from the edges within the specified time period
 	RequestsOutWoEdgesSum uint64 `json:"requests_out_wo_edges_sum,omitempty"`
 
-	// a RequestsSum is sum of all requests for grouped period
+	// Total number of requests within the specified time period
 	RequestsSum uint64 `json:"requests_sum,omitempty"`
 
-	// a SizeSumMax is max sum of all files sizes for grouped period
+	// RequestsWoEdgesSum is sum of requests without edges out requests for grouped period
+	RequestsWoEdgesSum uint64 `json:"requests_wo_edges_sum,omitempty"`
+
+	// Maximum amount of all file sizes within the specified time period
 	SizeSumMax uint64 `json:"size_sum_max,omitempty"`
 
-	// a SizeSumMean is mean sum of all files sizes for grouped period
+	// Mean amount of all file sizes within the specified time period
 	SizeSumMean uint64 `json:"size_sum_mean,omitempty"`
 
-	// a TrafficInSum is sum of incoming  traffic for grouped period
+	// Total amount of incoming traffic within the specified time period
 	TrafficInSum uint64 `json:"traffic_in_sum,omitempty"`
 
-	// a TrafficOutEdgesSum is sum of out edges traffic for grouped period
+	// Total number of traffic from the edges within the specified time period
 	TrafficOutEdgesSum uint64 `json:"traffic_out_edges_sum,omitempty"`
 
-	// a TrafficOutWoEdgesSum is sum of out no edges traffic for grouped period
+	// Total number of outсoming traffic without requests from the edges within the specified time period
 	TrafficOutWoEdgesSum uint64 `json:"traffic_out_wo_edges_sum,omitempty"`
 
-	// a TrafficSum is sum of all traffic for grouped period
+	// Total amount of traffic within the specified time period
 	TrafficSum uint64 `json:"traffic_sum,omitempty"`
 }
 
