@@ -20,7 +20,7 @@ type RedefinedVar struct {
 	// for
 	For interface{} `json:"for,omitempty"`
 
-	// id
+	// ID
 	ID int64 `json:"id,omitempty"`
 
 	// replace to

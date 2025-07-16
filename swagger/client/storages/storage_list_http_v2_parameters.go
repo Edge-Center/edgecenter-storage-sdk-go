@@ -106,7 +106,7 @@ type StorageListHTTPV2Params struct {
 
 	   Field name to sort by
 	*/
-	OrderBy *string
+	By *string
 
 	/* OrderDirection.
 
@@ -116,7 +116,7 @@ type StorageListHTTPV2Params struct {
 	<li><b>desc</b> — to set the descending order</li>
 	</ul>
 	*/
-	OrderDirection *string
+	Direction *string
 
 	/* ShowDeleted.
 
@@ -248,26 +248,26 @@ func (o *StorageListHTTPV2Params) SetOffset(offset *uint64) {
 	o.Offset = offset
 }
 
-// WithOrderBy adds the orderBy to the storage list Http v2 params
-func (o *StorageListHTTPV2Params) WithOrderBy(orderBy *string) *StorageListHTTPV2Params {
-	o.SetOrderBy(orderBy)
+// WithBy adds the orderBy to the storage list Http v2 params
+func (o *StorageListHTTPV2Params) WithBy(orderBy *string) *StorageListHTTPV2Params {
+	o.SetBy(orderBy)
 	return o
 }
 
-// SetOrderBy adds the orderBy to the storage list Http v2 params
-func (o *StorageListHTTPV2Params) SetOrderBy(orderBy *string) {
-	o.OrderBy = orderBy
+// SetBy adds the orderBy to the storage list Http v2 params
+func (o *StorageListHTTPV2Params) SetBy(orderBy *string) {
+	o.By = orderBy
 }
 
-// WithOrderDirection adds the orderDirection to the storage list Http v2 params
-func (o *StorageListHTTPV2Params) WithOrderDirection(orderDirection *string) *StorageListHTTPV2Params {
-	o.SetOrderDirection(orderDirection)
+// WithDirection adds the orderDirection to the storage list Http v2 params
+func (o *StorageListHTTPV2Params) WithDirection(orderDirection *string) *StorageListHTTPV2Params {
+	o.SetDirection(orderDirection)
 	return o
 }
 
-// SetOrderDirection adds the orderDirection to the storage list Http v2 params
-func (o *StorageListHTTPV2Params) SetOrderDirection(orderDirection *string) {
-	o.OrderDirection = orderDirection
+// SetDirection adds the orderDirection to the storage list Http v2 params
+func (o *StorageListHTTPV2Params) SetDirection(orderDirection *string) {
+	o.Direction = orderDirection
 }
 
 // WithShowDeleted adds the showDeleted to the storage list Http v2 params
@@ -396,13 +396,13 @@ func (o *StorageListHTTPV2Params) WriteToRequest(r runtime.ClientRequest, reg st
 		}
 	}
 
-	if o.OrderBy != nil {
+	if o.By != nil {
 
 		// query param order_by
 		var qrOrderBy string
 
-		if o.OrderBy != nil {
-			qrOrderBy = *o.OrderBy
+		if o.By != nil {
+			qrOrderBy = *o.By
 		}
 		qOrderBy := qrOrderBy
 		if qOrderBy != "" {
@@ -413,13 +413,13 @@ func (o *StorageListHTTPV2Params) WriteToRequest(r runtime.ClientRequest, reg st
 		}
 	}
 
-	if o.OrderDirection != nil {
+	if o.Direction != nil {
 
 		// query param order_direction
 		var qrOrderDirection string
 
-		if o.OrderDirection != nil {
-			qrOrderDirection = *o.OrderDirection
+		if o.Direction != nil {
+			qrOrderDirection = *o.Direction
 		}
 		qOrderDirection := qrOrderDirection
 		if qOrderDirection != "" {

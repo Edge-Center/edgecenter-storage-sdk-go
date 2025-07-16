@@ -27,7 +27,7 @@ type Location struct {
 	// Enum: [deny undefined allow]
 	AllowForNewStorage string `json:"allow_for_new_storage,omitempty"`
 
-	// id
+	// Id
 	ID int64 `json:"id,omitempty"`
 
 	// name

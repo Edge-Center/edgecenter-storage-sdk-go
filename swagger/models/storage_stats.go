@@ -97,7 +97,7 @@ type StorageStats struct {
 	// <li><b>count</b> — mean amount of all file sizes</li>
 	// </ul>
 	// Example: [[1690192611,1],[1690192612,2],[1690192613,2],[1690192614,1]]
-	SizeMeanSeries [][]interface{} `json:"size_mean_series"`
+	SizeMean [][]interface{} `json:"size_mean_series"`
 
 	// Maximum amount of all file sizes within the specified time period
 	SizeSumMax uint64 `json:"size_sum_max,omitempty"`

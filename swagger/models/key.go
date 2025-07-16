@@ -20,7 +20,7 @@ type Key struct {
 	// created at
 	CreatedAt string `json:"created_at,omitempty"`
 
-	// id
+	// Id
 	ID int64 `json:"id,omitempty"`
 
 	// name

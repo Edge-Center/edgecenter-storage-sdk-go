@@ -20,7 +20,7 @@ import (
 // swagger:model Client
 type Client struct {
 
-	// id
+	// Id
 	ID int64 `json:"id,omitempty"`
 
 	// product enabled
@@ -30,7 +30,7 @@ type Client struct {
 	// Enum: [trial activating trialend active paused new]
 	ProductStatus string `json:"product_status,omitempty"`
 
-	// reseller id
+	// reseller Id
 	ResellerID int64 `json:"reseller_id,omitempty"`
 
 	// updated at
