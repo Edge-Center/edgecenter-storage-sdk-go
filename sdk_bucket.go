@@ -12,7 +12,7 @@ type sdkBucket struct {
 }
 
 // BucketsList getter for EdgeCenter Storage API
-// same result like on UI here https://https://api.edgecenter.ru/storage/bucket/{storageID}
+// same result like on UI here https://api.edgecenter.ru/storage/bucket/{storageID}
 func (sdk *sdkBucket) BucketsList(opts ...func(params *buckets.StorageListBucketsHTTPParams)) ([]models.BucketDto, error) {
 	params := &buckets.StorageListBucketsHTTPParams{}
 	for _, opt := range opts {
