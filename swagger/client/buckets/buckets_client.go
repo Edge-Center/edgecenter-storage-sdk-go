@@ -259,9 +259,14 @@ func (a *Client) StorageBucketLifecycleDeleteHTTP(params *StorageBucketLifecycle
 /*
 	StorageBucketPolicyCreateHTTP creates a bucket policy
 
-	Creates a policy for your bucket. Policies are used to set permissions for actions on buckets, objects, and
+	Creates a default policy for your bucket. Policies are used to set permissions for actions on buckets, objects, and
 
 groups of objects.
+
+Default policy:
+```json
+{"Statement": [{"Effect": "Allow","Principal": "*", "Action": "s3:GetObject", "Resource": "arn:aws:s3:::%s/*"}]}
+```
 */
 func (a *Client) StorageBucketPolicyCreateHTTP(params *StorageBucketPolicyCreateHTTPParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StorageBucketPolicyCreateHTTPNoContent, error) {
 	// TODO: Validate the params before sending
