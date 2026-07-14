@@ -3,11 +3,12 @@ package ec_storage
 import (
 	"context"
 	"fmt"
-	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/locations"
 	"os"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/locations"
 
 	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/buckets"
 	"github.com/Edge-Center/edgecenter-storage-sdk-go/swagger/client/storages"
@@ -122,5 +123,4 @@ func TestLocation(t *testing.T) {
 	if err != nil {
 		t.Fatal("locations list", err)
 	}
-
 }
