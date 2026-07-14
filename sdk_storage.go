@@ -59,7 +59,6 @@ func (sdk *sdkStorage) DeleteStorage(opts ...func(params *storages.StorageDelete
 // UpdateStorageCredentials writer for EdgeCenter Storage API
 func (sdk *sdkStorage) UpdatestoragesCredentials(
 	opts ...func(params *storages.StorageUpdateCredentialsHTTPParams)) (*models.Credentials, error) {
-
 	params := &storages.StorageUpdateCredentialsHTTPParams{}
 	for _, opt := range opts {
 		opt(params)
