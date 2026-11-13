@@ -10,3 +10,10 @@ The purpose of this project is to cover EdgeCenter Storage API methods related w
 Since Storage service provides Swagger open docs so we generate an actual version of the client with https://goswagger.io/generate/client.html.
 And we extend our wrapper of this client after. 
 Read Makefile to get more technical details.
+
+## License
+
+This project is licensed under the Mozilla Public License 2.0, see [LICENSE](LICENSE).
+Copyright (c) 2022 LLC "EDGECENTER"
+
+This project includes code originally developed by G-Core Labs S.A. (Copyright G-Core Labs S.A.), licensed under the same license as this repository. Subsequent development by LLC "EDGECENTER".
